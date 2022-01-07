@@ -1,0 +1,35 @@
+C:\Users\Usuario\source\repos\Proyecto final\bin\Debug\Proyecto final.exe.config
+C:\Users\Usuario\source\repos\Proyecto final\bin\Debug\Proyecto final.exe
+C:\Users\Usuario\source\repos\Proyecto final\bin\Debug\Proyecto final.pdb
+C:\Users\Usuario\source\repos\Proyecto final\obj\Debug\Proyecto final.csproj.AssemblyReference.cache
+C:\Users\Usuario\source\repos\Proyecto final\obj\Debug\MainWindow.g.cs
+C:\Users\Usuario\source\repos\Proyecto final\obj\Debug\App.g.cs
+C:\Users\Usuario\source\repos\Proyecto final\obj\Debug\Proyecto final_MarkupCompile.cache
+C:\Users\Usuario\source\repos\Proyecto final\obj\Debug\Proyecto final_MarkupCompile.lref
+C:\Users\Usuario\source\repos\Proyecto final\obj\Debug\MainWindow.baml
+C:\Users\Usuario\source\repos\Proyecto final\obj\Debug\Proyecto final.g.resources
+C:\Users\Usuario\source\repos\Proyecto final\obj\Debug\Proyecto_final.Properties.Resources.resources
+C:\Users\Usuario\source\repos\Proyecto final\obj\Debug\Proyecto final.csproj.GenerateResource.cache
+C:\Users\Usuario\source\repos\Proyecto final\obj\Debug\Proyecto final.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\source\repos\Proyecto final\obj\Debug\Proyecto final.exe
+C:\Users\Usuario\source\repos\Proyecto final\obj\Debug\Proyecto final.pdb
+C:\Users\Usuario\source\repos\Proyecto final\obj\Debug\Window1.g.cs
+C:\Users\Usuario\source\repos\Proyecto final\obj\Debug\Window1.baml
+D:\Documentos\Visual Studio 2022\Proyecto final\bin\Debug\Proyecto final.exe.config
+D:\Documentos\Visual Studio 2022\Proyecto final\bin\Debug\Proyecto final.exe
+D:\Documentos\Visual Studio 2022\Proyecto final\bin\Debug\Proyecto final.pdb
+D:\Documentos\Visual Studio 2022\Proyecto final\obj\Debug\Proyecto final.csproj.AssemblyReference.cache
+D:\Documentos\Visual Studio 2022\Proyecto final\obj\Debug\Proyecto final.csproj.SuggestedBindingRedirects.cache
+D:\Documentos\Visual Studio 2022\Proyecto final\obj\Debug\MainWindow.g.cs
+D:\Documentos\Visual Studio 2022\Proyecto final\obj\Debug\Window1.g.cs
+D:\Documentos\Visual Studio 2022\Proyecto final\obj\Debug\App.g.cs
+D:\Documentos\Visual Studio 2022\Proyecto final\obj\Debug\Proyecto final_MarkupCompile.cache
+D:\Documentos\Visual Studio 2022\Proyecto final\obj\Debug\Proyecto final_MarkupCompile.lref
+D:\Documentos\Visual Studio 2022\Proyecto final\obj\Debug\MainWindow.baml
+D:\Documentos\Visual Studio 2022\Proyecto final\obj\Debug\Window1.baml
+D:\Documentos\Visual Studio 2022\Proyecto final\obj\Debug\Proyecto final.g.resources
+D:\Documentos\Visual Studio 2022\Proyecto final\obj\Debug\Proyecto_final.Properties.Resources.resources
+D:\Documentos\Visual Studio 2022\Proyecto final\obj\Debug\Proyecto final.csproj.GenerateResource.cache
+D:\Documentos\Visual Studio 2022\Proyecto final\obj\Debug\Proyecto final.csproj.CoreCompileInputs.cache
+D:\Documentos\Visual Studio 2022\Proyecto final\obj\Debug\Proyecto final.exe
+D:\Documentos\Visual Studio 2022\Proyecto final\obj\Debug\Proyecto final.pdb
