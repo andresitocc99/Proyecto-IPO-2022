@@ -21,9 +21,25 @@ namespace Proyecto_final
     public partial class Window1 : Window
     {
   
-        public Window1()
+        private Window1(List<Socio> socios,string TextUsuario, string Password)
         {
             InitializeComponent();
+            DataContext = socios;
+            Socio socio = get_Socio(socios, TextUsuario, Password);
+        }
+
+        private Socio get_Socio (List<Socio> socios, string TextoUsuario, string password)
+        {
+            Socio socio = null;
+            for (int i = 0; i < socios.Count; i++)
+            {
+                if (TextoUsuario.Equals(socios[i].username) && password.Equals(socios[i].password))
+                {
+                    socio = socios[i];
+                }
+            }
+
+            return socio;
         }
 
         private void UserAvatar_MouseEnter(object sender, MouseEventArgs e)
@@ -54,8 +70,7 @@ namespace Proyecto_final
             {
                 try
                 {
-                    var bitmap = new BitmapImage(new Uri(abrirDialog.FileName,
-                    UriKind.Absolute));
+                    var bitmap = new BitmapImage(new Uri(abrirDialog.FileName, UriKind.Absolute));
                     UserAvatar.Source = bitmap;
                 }
                 catch (Exception ex)

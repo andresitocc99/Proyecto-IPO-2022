@@ -22,15 +22,14 @@ namespace Proyecto_final
     public partial class MainWindow : Window    {
 
         private List<Animal> listaAnimales;
-        private List<Voluntario> usuarios;
-        private string usuario = "admin";
-        private string pass = "1234";
+        private List<Socio> socios;
+   
 
         
         public MainWindow()
         {
             InitializeComponent();
-            usuarios = CargarListaVoluntarios();
+            socios = CargarListaSocios();
             //listaAnimales = CargarListaAnimales();
             //DataContext = voluntario1;
         }
@@ -90,10 +89,9 @@ namespace Proyecto_final
             }
             else
             {
-                if (TextUsuario.Text.Equals(usuario)
-                && PasswordBox.Password.Equals(pass))
+                if (check_Login (TextUsuario.Text, PasswordBox.Password) == true) 
                 {
-                    Window1 windowMain = new Window1();
+                    Window1 windowMain = new Window1(socios, TextUsuario.Text, PasswordBox.Password);
                     windowMain.Show();
                     this.Close();
                 }
@@ -105,16 +103,30 @@ namespace Proyecto_final
             }
         }
 
-        public List<Voluntario> CargarListaVoluntarios()
+        private Boolean check_Login (string TextoUsuario, string password)
         {
-            List<Voluntario> lista = new List<Voluntario>();
+            Boolean check = false;
+            for (int i = 0; i<socios.Count; i++)
+            {
+                if (TextoUsuario.Equals(socios[i].username) && password.Equals(socios[i].password))
+                {
+                    check = true;
+                }
+            }
+
+            return check;
+        }
+
+        private List<Socio> CargarListaSocios()
+        {
+            List<Socio> lista = new List<Socio>();
             XmlDocument doc = new XmlDocument();
-            var fichero = Application.GetResourceStream(new Uri("resources/Usuarios.xml", UriKind.Relative));
+            var fichero = Application.GetResourceStream(new Uri("resources/Voluntarios.xml", UriKind.Relative));
             doc.Load(fichero.Stream);
 
             foreach (XmlNode node in doc.DocumentElement.ChildNodes)
             {
-                var nuevoVoluntario = new Voluntario("", "", "", "", "", "");
+                var nuevoVoluntario = new Socio("", "", "", "", "", "");
 
                 nuevoVoluntario.username = node.Attributes["Username"].Value;
                 nuevoVoluntario.password = node.Attributes["Contrasenia"].Value;

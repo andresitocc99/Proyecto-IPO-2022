@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Proyecto_final
 {
-    class Voluntario
+    class Socio
     {
-        public Voluntario(string username, string password, string nombre, string apellidos, string dni, string tlf)
+        public Socio(string username, string password, string nombre, string apellidos, string dni, string tlf)
         {
             this.username = username;
             this.password = password;
