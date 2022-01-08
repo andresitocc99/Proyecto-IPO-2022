@@ -12,22 +12,27 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml;
 
 namespace Proyecto_final
 {
     /// <summary>
     /// Lógica de interacción para MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
-    {
+    public partial class MainWindow : Window    {
+
+        private List<Animal> listaAnimales;
+        private List<Voluntario> usuarios;
         private string usuario = "admin";
         private string pass = "1234";
 
-        private Voluntario voluntario1 = new Voluntario("JuanCarlos", "Pérez", "Pérez", "12345678F", 123456789);
+        
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = voluntario1;
+            usuarios = CargarListaVoluntarios();
+            //listaAnimales = CargarListaAnimales();
+            //DataContext = voluntario1;
         }
 
         private void TextUsuario_KeyDown(object sender, KeyEventArgs e)
@@ -100,5 +105,59 @@ namespace Proyecto_final
             }
         }
 
+        public List<Voluntario> CargarListaVoluntarios()
+        {
+            List<Voluntario> lista = new List<Voluntario>();
+            XmlDocument doc = new XmlDocument();
+            var fichero = Application.GetResourceStream(new Uri("resources/Usuarios.xml", UriKind.Relative));
+            doc.Load(fichero.Stream);
+
+            foreach (XmlNode node in doc.DocumentElement.ChildNodes)
+            {
+                var nuevoVoluntario = new Voluntario("", "", "", "", "", "");
+
+                nuevoVoluntario.username = node.Attributes["Username"].Value;
+                nuevoVoluntario.password = node.Attributes["Contrasenia"].Value;
+                nuevoVoluntario.Nombre = node.Attributes["Nombre"].Value;
+                nuevoVoluntario.Apellidos = node.Attributes["Apellidos"].Value;
+                nuevoVoluntario.dni = node.Attributes["DNI"].Value;
+                nuevoVoluntario.tlf = node.Attributes["Telefono"].Value;
+
+                lista.Add(nuevoVoluntario);
+            }
+
+            return lista;
+        }
+
+        /*public List<Animal> CargarListaAnimales()
+        {
+            List<Animal> lista = new List<Animal>();
+            XmlDocument doc = new XmlDocument();
+            var fichero = Application.GetResourceStream(new Uri("resources/Animales.xml", UriKind.Relative));
+            doc.Load(fichero.Stream);
+
+            foreach (XmlNode node in doc.DocumentElement.ChildNodes)
+            {
+                var nuevoAnimal = new Animal("", "", "", 0, 0, 0, "", "", "", "");
+
+                nuevoAnimal.nombre = node.Attributes["nombre"].Value;
+                nuevoAnimal.sexo = node.Attributes["sexo"].Value;
+                nuevoAnimal.raza = node.Attributes["raza"].Value;
+                nuevoAnimal.tamanio = Convert.ToInt32(node.Attributes["tamanio"].Value);
+                nuevoAnimal.peso = Convert.ToInt32(node.Attributes["peso"].Value);
+                nuevoAnimal.edad = Convert.ToInt32(node.Attributes["edad"].Value);
+                nuevoAnimal.chip = node.Attributes["chip"].Value;
+                nuevoAnimal.vacunado = node.Attributes["vacunado"].Value;
+                nuevoAnimal.estado_animal = node.Attributes["estado_animal"].Value;
+                nuevoAnimal.enfermo = node.Attributes["enfermo"].Value;
+
+                lista.Add(nuevoAnimal);
+            }
+
+            return lista;
+
+        }*/
+
+        
     }
 }

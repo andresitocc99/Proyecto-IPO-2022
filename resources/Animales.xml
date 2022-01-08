@@ -1,0 +1,8 @@
+﻿<Animales>
+	<Animal nombre ="Kira" sexo="hembra" animal="Perro" tamanio="40" peso="3000" edad="3" chip="si" vacunado="si" estado_animal="adoptado" enfermo="no" />
+	<Animal nombre ="Tedi" sexo="macho" tipo="Perro" tamanio="15" peso="1000" edad="1" chip="si" vacunado="si" estado_animal="adoptado" enfermo="no" />
+	<Animal nombre ="Zipi" sexo="macho" tipo="Periquito" tamanio="10" peso="35" edad="6" chip="no" app="no" estado_animal="cuarentena" enfermo="no" />
+	<Animal nombre ="Zape" sexo="macho" tipo="Periquito" tamanio="10" peso="40" edad="36" chip="no" app="no" estado_animal="adoptado" enfermo="si" />
+	<Animal nombre ="Tambor" sexo="macho" tipo="Conejo" tamanio="15" peso="1500" edad="3" chip="no" app="si" estado_animal="adoptado" enfermo="no" />
+
+</Animales>
