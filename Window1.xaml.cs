@@ -20,12 +20,14 @@ namespace Proyecto_final
     /// </summary>
     public partial class Window1 : Window
     {
-  
-        private Window1(List<Socio> socios,string TextUsuario, string Password)
+        private Socio socioLogeado;
+        public Window1 (Socio socio)
         {
+            socioLogeado = socio;
             InitializeComponent();
-            DataContext = socios;
-            Socio socio = get_Socio(socios, TextUsuario, Password);
+        
+            DataContext = socio;
+            //Socio socio = get_Socio(socios, TextUsuario, Password);
         }
 
         private Socio get_Socio (List<Socio> socios, string TextoUsuario, string password)

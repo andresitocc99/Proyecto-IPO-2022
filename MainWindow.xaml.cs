@@ -78,7 +78,7 @@ namespace Proyecto_final
             Application.Current.Shutdown();
         }
 
-        private void BtnLogin_Click(object sender, RoutedEventArgs e)
+        public void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
             // Si no se ha introducido el login
             if (String.IsNullOrEmpty(TextUsuario.Text)
@@ -91,7 +91,8 @@ namespace Proyecto_final
             {
                 if (check_Login (TextUsuario.Text, PasswordBox.Password) == true) 
                 {
-                    Window1 windowMain = new Window1(socios, TextUsuario.Text, PasswordBox.Password);
+                    
+                    Window1 windowMain = new Window1(get_Socio(socios, TextUsuario.Text, PasswordBox.Password));
                     windowMain.Show();
                     this.Close();
                 }
@@ -101,6 +102,20 @@ namespace Proyecto_final
                     MessageBox.Show("Combinación usuario-contraseña incorrecta");
                 }
             }
+        }
+
+        private Socio get_Socio(List<Socio> socios, string TextoUsuario, string password)
+        {
+            Socio socio = null;
+            for (int i = 0; i < socios.Count; i++)
+            {
+                if (TextoUsuario.Equals(socios[i].username) && password.Equals(socios[i].password))
+                {
+                    socio = socios[i];
+                }
+            }
+
+            return socio;
         }
 
         private Boolean check_Login (string TextoUsuario, string password)
