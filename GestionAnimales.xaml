@@ -9,9 +9,9 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="25"/>
-            <ColumnDefinition Width="350"/>
+            <ColumnDefinition Width="217"/>
             <ColumnDefinition Width="500"/>
-            <ColumnDefinition Width="25"/>
+            <ColumnDefinition Width="25*"/>
         </Grid.ColumnDefinitions>
 
 
