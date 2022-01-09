@@ -16,7 +16,7 @@ using System.Xml;
 
 namespace Proyecto_final
 {
-   ¡
+   
     public partial class Window1 : Window
     {
         private Socio socioLogeado;

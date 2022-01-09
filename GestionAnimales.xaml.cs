@@ -22,8 +22,8 @@ namespace Proyecto_final
         private List<Perros> listaPerros;
         public GestionAnimales()
         {
-            listaPerros = CargarListaPerros();
             InitializeComponent();
+            listaPerros = CargarListaPerros();
             DataContext = listaPerros;
         }
 
