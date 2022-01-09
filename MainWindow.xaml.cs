@@ -21,17 +21,12 @@ namespace Proyecto_final
     /// </summary>
     public partial class MainWindow : Window    {
 
-        private List<Perros> listaAnimales;
         private List<Socio> socios;
-   
-
-        
         public MainWindow()
         {
             InitializeComponent();
             socios = CargarListaSocios();
-            //listaAnimales = CargarListaAnimales();
-            //DataContext = voluntario1;
+            DataContext = socios;
         }
 
         private void TextUsuario_KeyDown(object sender, KeyEventArgs e)

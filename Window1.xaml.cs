@@ -16,9 +16,7 @@ using System.Xml;
 
 namespace Proyecto_final
 {
-    /// <summary>
-    /// Lógica de interacción para Window1.xaml
-    /// </summary>
+   ¡
     public partial class Window1 : Window
     {
         private Socio socioLogeado;
@@ -27,7 +25,7 @@ namespace Proyecto_final
         {
             socioLogeado = get_Socio (CargarListaSocios(),txtUsuario, txtPassword);
             InitializeComponent();
-            DataContext = socioLogeado ;
+            DataContext = socioLogeado;
            
         }
 

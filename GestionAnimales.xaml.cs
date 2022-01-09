@@ -22,9 +22,9 @@ namespace Proyecto_final
         private List<Perros> listaPerros;
         public GestionAnimales()
         {
-            InitializeComponent();
             listaPerros = CargarListaPerros();
-            DataContext=listaPerros;
+            InitializeComponent();
+            DataContext = listaPerros;
         }
 
         private List<Perros> CargarListaPerros()
@@ -38,16 +38,16 @@ namespace Proyecto_final
             {
                 var nuevoPerro = new Perros("", "", "", 0, 0, 0, "", "", "", null);
 
-                nuevoPerro.nombre = node.Attributes["nombre"].Value;
-                nuevoPerro.sexo = node.Attributes["sexo"].Value;
-                nuevoPerro.raza = node.Attributes["raza"].Value;
-                nuevoPerro.tamanio = Convert.ToInt32(node.Attributes["tamanio"].Value);
-                nuevoPerro.peso = Convert.ToInt32(node.Attributes["peso"].Value);
-                nuevoPerro.edad = Convert.ToInt32(node.Attributes["edad"].Value);
-                nuevoPerro.ppp = node.Attributes["ppp"].Value;
-                nuevoPerro.vacunado = node.Attributes["vacunado"].Value;
-                nuevoPerro.enfermo = node.Attributes["enfermo"].Value;
-                nuevoPerro.foto = new Uri(node.Attributes["foto"].Value, UriKind.Relative);
+                nuevoPerro.Nombre = node.Attributes["Nombre"].Value;
+                nuevoPerro.Sexo = node.Attributes["Sexo"].Value;
+                nuevoPerro.Raza = node.Attributes["Raza"].Value;
+                nuevoPerro.Tamanio = Convert.ToInt32(node.Attributes["Tamanio"].Value);
+                nuevoPerro.Peso = Convert.ToInt32(node.Attributes["Peso"].Value);
+                nuevoPerro.Edad = Convert.ToInt32(node.Attributes["Edad"].Value);
+                nuevoPerro.PPP = node.Attributes["PPP"].Value;
+                nuevoPerro.Vacunado = node.Attributes["Vacunado"].Value;
+                nuevoPerro.Enfermo = node.Attributes["Enfermo"].Value;
+                nuevoPerro.Foto = new Uri(node.Attributes["Foto"].Value, UriKind.Relative);
 
                 lista.Add(nuevoPerro);
             }

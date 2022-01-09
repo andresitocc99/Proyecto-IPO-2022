@@ -8,30 +8,30 @@ namespace Proyecto_final
 {
     class Perros
     {
-        public Perros(string nombre, string sexo, string raza, int tamanio, int peso, int edad, string ppp, string vacunado, string enfermo,Uri foto)
+        public Perros(string nombre, string sexo, string raza, int tamanio, int peso, int edad, string pPP, string vacunado, string enfermo, Uri foto)
         {
-            this.nombre = nombre;
-            this.sexo = sexo;
-            this.raza = raza;
-            this.tamanio = tamanio;
-            this.peso = peso;
-            this.edad = edad;
-            this.ppp = ppp;
-            this.vacunado = vacunado ;
-            this.enfermo = enfermo;
-            this.foto = foto;
+            this.Nombre = nombre;
+            this.Sexo = sexo;
+            this.Raza = raza;
+            this.Tamanio = tamanio;
+            this.Peso = peso;
+            this.Edad = edad;
+            this.PPP = pPP;
+            this.Vacunado = vacunado;
+            this.Enfermo = enfermo;
+            this.Foto = foto;
         }
 
-        public string nombre { get; set; }
-        public string sexo { get; set; }
-        public string raza { get; set; }
-        public int tamanio { get; set; }
-        public int peso { get; set; }
-        public int edad { get; set; } 
-        public string ppp { get; set; }
-        public string vacunado { get; set; }
-        public string enfermo { get; set; }
-        public Uri foto { get; set; }
+        public string Nombre { get; set; }
+        public string Sexo { get; set; }
+        public string Raza { get; set; }
+        public int Tamanio { get; set; }
+        public int Peso { get; set; }
+        public int Edad { get; set; } 
+        public string PPP { get; set; }
+        public string Vacunado { get; set; }
+        public string Enfermo { get; set; }
+        public Uri Foto { get; set; }
 
 
     }

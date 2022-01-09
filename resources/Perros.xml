@@ -1,9 +1,7 @@
 ﻿<Perros>
-	
-	<Perro nombre ="Nana" sexo="hembra" raza="Pastor Alemán" tamanio="40" peso="3000" edad="3" ppp="si" vacunado="si" enfermo="no" foto="Images/nana.jpg"/>
-	<Animal nombre ="Kira" sexo="hembra" raza="Bichón Maltés" tamanio="15" peso="1000" edad="1" ppp="no" vacunado="si" enfermo="no" foto=""/>
-	<Animal nombre ="Tedi" sexo="macho" raza="Yorkshire" tamanio="10" peso="35" edad="6" ppp="no" vacunado="si" enfermo="no" foto=""/>
-	<Animal nombre ="Zape" sexo="macho" raza="Caniche" tamanio="10" peso="40" edad="36" ppp="no" vacunado="no" enfermo="si" foto=""/>
-	<Animal nombre ="Oker" sexo="macho" raza="Husky" tamanio="15" peso="1500" edad="3" ppp="si" vacunado="si" enfermo="no" foto=""/>
-
+	<Perro Nombre="Nana" Sexo="hembra" Raza="Pastor" Tamanio="40" Peso="3000" Edad="3" PPP="si" Vacunado="si" Enfermo="no" Foto="Images/nana.jpg"/>
+	<Perro Nombre="Kira" Sexo="hembra" Raza="Bichon" Tamanio="15" Peso="1000" Edad="1" PPP="no" Vacunado="si" Enfermo="no" Foto="Images/kira.jpg"/>
+	<Perro Nombre="Tedi" Sexo="macho" Raza="Yorkshire" Tamanio="10" Peso="35" Edad="6" PPP="no" Vacunado="si" Enfermo="no" Foto="Images/tedi.jpg"/>
+	<Perro Nombre="Zape" Sexo="macho" Raza="Caniche" Tamanio="10" Peso="40" Edad="36" PPP="no" Vacunado="no" Enfermo="si" Foto="Images/zape.jpg"/>
+	<Perro Nombre="Oker" Sexo="macho" Raza="Husky" Tamanio="15" Peso="1500" Edad="3" PPP="si" Vacunado="si" Enfermo="no" Foto="Images/oker.png"/>
 </Perros>

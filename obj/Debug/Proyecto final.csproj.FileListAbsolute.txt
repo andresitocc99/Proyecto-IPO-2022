@@ -35,3 +35,22 @@ D:\Documentos\Visual Studio 2022\Proyecto final\obj\Debug\Proyecto final.exe
 D:\Documentos\Visual Studio 2022\Proyecto final\obj\Debug\Proyecto final.pdb
 D:\Documentos\Visual Studio 2022\Proyecto final\obj\Debug\GestionAnimales.g.cs
 D:\Documentos\Visual Studio 2022\Proyecto final\obj\Debug\GestionAnimales.baml
+D:\Documentos\Github\Proyecto-IPO-2022\bin\Debug\Proyecto final.exe.config
+D:\Documentos\Github\Proyecto-IPO-2022\bin\Debug\Proyecto final.exe
+D:\Documentos\Github\Proyecto-IPO-2022\bin\Debug\Proyecto final.pdb
+D:\Documentos\Github\Proyecto-IPO-2022\obj\Debug\Proyecto final.csproj.AssemblyReference.cache
+D:\Documentos\Github\Proyecto-IPO-2022\obj\Debug\GestionAnimales.g.cs
+D:\Documentos\Github\Proyecto-IPO-2022\obj\Debug\MainWindow.g.cs
+D:\Documentos\Github\Proyecto-IPO-2022\obj\Debug\Window1.g.cs
+D:\Documentos\Github\Proyecto-IPO-2022\obj\Debug\App.g.cs
+D:\Documentos\Github\Proyecto-IPO-2022\obj\Debug\Proyecto final_MarkupCompile.cache
+D:\Documentos\Github\Proyecto-IPO-2022\obj\Debug\Proyecto final_MarkupCompile.lref
+D:\Documentos\Github\Proyecto-IPO-2022\obj\Debug\GestionAnimales.baml
+D:\Documentos\Github\Proyecto-IPO-2022\obj\Debug\MainWindow.baml
+D:\Documentos\Github\Proyecto-IPO-2022\obj\Debug\Window1.baml
+D:\Documentos\Github\Proyecto-IPO-2022\obj\Debug\Proyecto final.g.resources
+D:\Documentos\Github\Proyecto-IPO-2022\obj\Debug\Proyecto_final.Properties.Resources.resources
+D:\Documentos\Github\Proyecto-IPO-2022\obj\Debug\Proyecto final.csproj.GenerateResource.cache
+D:\Documentos\Github\Proyecto-IPO-2022\obj\Debug\Proyecto final.csproj.CoreCompileInputs.cache
+D:\Documentos\Github\Proyecto-IPO-2022\obj\Debug\Proyecto final.exe
+D:\Documentos\Github\Proyecto-IPO-2022\obj\Debug\Proyecto final.pdb
