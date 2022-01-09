@@ -3,5 +3,5 @@
 	<Perro Nombre="Kira" Sexo="hembra" Raza="Bichon" Tamanio="15" Peso="1000" Edad="1" PPP="no" Vacunado="si" Enfermo="no" Foto="Images/kira.jpg"/>
 	<Perro Nombre="Tedi" Sexo="macho" Raza="Yorkshire" Tamanio="10" Peso="35" Edad="6" PPP="no" Vacunado="si" Enfermo="no" Foto="Images/tedi.jpg"/>
 	<Perro Nombre="Zape" Sexo="macho" Raza="Caniche" Tamanio="10" Peso="40" Edad="36" PPP="no" Vacunado="no" Enfermo="si" Foto="Images/zape.jpg"/>
-	<Perro Nombre="Oker" Sexo="macho" Raza="Husky" Tamanio="15" Peso="1500" Edad="3" PPP="si" Vacunado="si" Enfermo="no" Foto="Images/oker.png"/>
+	<Perro Nombre="Oker" Sexo="macho" Raza="Husky" Tamanio="15" Peso="1500" Edad="3" PPP="si" Vacunado="si" Enfermo="no" Foto="Images/oker.jpg"/>
 </Perros>
