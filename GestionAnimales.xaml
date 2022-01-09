@@ -9,11 +9,11 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="25"/>
-            <ColumnDefinition Width="300"/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="450"/>
+            <ColumnDefinition Width="217"/>
+            <ColumnDefinition Width="500"/>
             <ColumnDefinition Width="25*"/>
         </Grid.ColumnDefinitions>
+
 
         <Grid.RowDefinitions>
             <RowDefinition Height="23*"/>
@@ -31,7 +31,7 @@
                 </MenuItem>
             </MenuItem>
             <MenuItem Header="Perfil" FontSize="14">
-
+               
             </MenuItem>
             <MenuItem Header="Ajustes" FontSize="14">
                 <MenuItem x:Name="Ajustes" Header="Ajustes">
@@ -41,38 +41,22 @@
                 </MenuItem>
             </MenuItem>
         </Menu>
-
+ 
         <Button Grid.Column="1" Margin="31,0,0,0" Grid.Row="3" Content="Salir" HorizontalAlignment="Left" VerticalAlignment="Center" Width="117" Height="20" FontWeight="Bold"  />
 
-        <ListBox x:Name="lstPerros" Grid.Column="1" SelectedIndex="0" Margin="5" ItemsSource="{Binding}"
-                  Grid.Row="2">
+        <ListBox x:Name="lstPerros" Grid.Column="1" SelectedIndex="0" Margin="5
+                 " Grid.Row="2" ItemsSource="{Binding}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <Image Width="40" Height="40" Source="{Binding Foto}"/>
-                        <TextBlock x:Name="txtNombrePerro" VerticalAlignment="Center" Margin="10,0,0,0" Text="{Binding Nombre}" FontWeight="Bold" FontSize="18"/>
+                        
+                        <Label x:Name="lblNombrePerro" Content="{Binding Nombre}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
-
-            <ListBox.ItemContainerStyle>
-                <Style TargetType="ListBoxItem">
-                    <Setter Property="Margin" Value="2"/>
-                    <Style.Triggers>
-                        <Trigger Property="IsSelected" Value="True">
-                            <Setter Property="Foreground" Value="Green"/>
-                            <Setter Property="Background" Value="LightGreen"/>
-                            <Setter Property="FontWeight" Value="Bold"/>
-                            <Setter Property="BorderBrush" Value="Green"/>
-                            <Setter Property="BorderThickness" Value="3"/>
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </ListBox.ItemContainerStyle>
         </ListBox>
-        <GridSplitter Grid.Column="2" Width="5" HorizontalAlignment="Stretch" Grid.Row="2"/>
-        <StackPanel x:Name="spDetallesPerros" Grid.Column="3" Orientation="Vertical" Grid.Row="2">
-            <Label x:Name="lblNombre" FontWeight="Bold" FontSize="20" Content="{Binding SelectedItem.Nombre, ElementName=lstPerros}" Margin="0,0,0.4,0"/>
+        <GridSplitter Grid.Column="2" Width="5" HorizontalAlignment="Stretch" />
+        <StackPanel x:Name="spDetallesPerros" Grid.Column="2" Orientation="Vertical">
         </StackPanel>
 
     </Grid>
