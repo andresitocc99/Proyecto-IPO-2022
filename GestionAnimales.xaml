@@ -44,13 +44,12 @@
  
         <Button Grid.Column="1" Margin="31,0,0,0" Grid.Row="3" Content="Salir" HorizontalAlignment="Left" VerticalAlignment="Center" Width="117" Height="20" FontWeight="Bold"  />
 
-        <ListBox x:Name="lstPerros" Grid.Column="1" SelectedIndex="0" Margin="5
-                 " Grid.Row="2">
+        <ListBox x:Name="lstPerros" Grid.Column="1" SelectedIndex="0" Margin="5" Grid.Row="2">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        
-                        <Label x:Name="lblNombrePerro" Content="{Binding Nombre}"/>
+                        <Image Width="40" Height="40" Source="{Binding Foto}"/>
+                        <TextBlock VerticalAlignment="Center" Margin="20,0,0,0" Text="{Binding Nombre}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
@@ -58,6 +57,7 @@
         <GridSplitter Grid.Column="2" Width="5" HorizontalAlignment="Stretch" />
         <StackPanel x:Name="spDetallesPerros" Grid.Column="2" Orientation="Vertical">
         </StackPanel>
+
 
     </Grid>
 </Window>

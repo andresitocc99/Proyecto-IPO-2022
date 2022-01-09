@@ -79,7 +79,7 @@ namespace Proyecto_final
             if (String.IsNullOrEmpty(TextUsuario.Text)
             || String.IsNullOrEmpty(PasswordBox.Password))
             {
-                
+                // feedback al usuario
                 MessageBox.Show("Introduzca el usuario y la contraseña");
             }
             else

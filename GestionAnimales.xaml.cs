@@ -18,6 +18,7 @@ namespace Proyecto_final
 
     public partial class GestionAnimales : Window
     {
+
         private List<Perros> listaPerros;
         public GestionAnimales()
         {
@@ -54,6 +55,7 @@ namespace Proyecto_final
             return lista;
 
         }
+
 
     }
 }
