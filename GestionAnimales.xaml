@@ -9,18 +9,10 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="25"/>
-            <ColumnDefinition Width="217"/>
-            <ColumnDefinition Width="500"/>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="450"/>
             <ColumnDefinition Width="25*"/>
         </Grid.ColumnDefinitions>
-
-
-        <Grid.RowDefinitions>
-            <RowDefinition Height="23*"/>
-            <RowDefinition Height="30*"/>
-            <RowDefinition Height="542*" />
-            <RowDefinition Height="41*"/>
-        </Grid.RowDefinitions>
 
         <Menu Grid.Row="0" x:Name="miMenu" FontSize="16" FontWeight="Bold" Grid.ColumnSpan="4" VerticalAlignment="Top">
             <MenuItem Header="Ayuda" FontSize="14" >
@@ -41,22 +33,55 @@
                 </MenuItem>
             </MenuItem>
         </Menu>
- 
+
         <Button Grid.Column="1" Margin="31,0,0,0" Grid.Row="3" Content="Salir" HorizontalAlignment="Left" VerticalAlignment="Center" Width="117" Height="20" FontWeight="Bold"  />
 
-        <ListBox x:Name="lstPerros" Grid.Column="1" SelectedIndex="0" Margin="5
-                 " Grid.Row="2">
+        <ListBox x:Name="lstListaPeliculas" Grid.Column="0" SelectedIndex="0" Margin="5" ItemsSource="{Binding}" AlternationCount="2">
+
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        
-                        <Label x:Name="lblNombrePerro" Content="{Binding Nombre}"/>
+                        <Image Width="32" Height="37"
+                                        Source="{Binding Caratula}"/>
+                        <TextBlock VerticalAlignment="Center"
+                                        Margin="10,0,0,0"
+                                        Text="{Binding Titulo}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
+
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="Margin" Value="2"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Foreground" Value="Blue"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="BorderBrush" Value="Blue"/>
+                            <Setter Property="BorderThickness" Value="3"/>
+                        </Trigger>
+                        <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                            <Setter Property="Background" Value="LightCyan"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </ListBox.ItemContainerStyle>
+
+            
         </ListBox>
-        <GridSplitter Grid.Column="2" Width="5" HorizontalAlignment="Stretch" />
-        <StackPanel x:Name="spDetallesPerros" Grid.Column="2" Orientation="Vertical">
+
+
+        <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" />
+        <StackPanel x:Name="spDetallesPeliculas" Grid.Column="2" Orientation="Vertical">
+            <Label x:Name="lblTitulo" FontWeight="Bold" FontSize="20" Content="{Binding ElementName=lstListaPeliculas,Path=SelectedItem.Titulo}"/>
+            <Image x:Name="imgCaratula" Height="120" Width="100" HorizontalAlignment="Left" Margin="5" Stretch="Fill" Source="{Binding ElementName=lstListaPeliculas, Path=SelectedItem.Caratula}"/>
+            <Label FontWeight="Bold">Año:</Label>
+            <Label x:Name="lblAnio" Content="{Binding ElementName=lstListaPeliculas, Path=SelectedItem.Anio}"/>
+            <Label FontWeight="Bold">Duración (min.):</Label>
+            <Label x:Name="lblDuracion" Content="{Binding ElementName=lstListaPeliculas, Path=SelectedItem.Duracion}" />
+            <Label FontWeight="Bold">Argumento:</Label>
+            <TextBlock x:Name="txtArgumento" Margin="5" Text="{Binding ElementName=lstListaPeliculas, Path=SelectedItem.Argumento}"/>
+
         </StackPanel>
 
     </Grid>
