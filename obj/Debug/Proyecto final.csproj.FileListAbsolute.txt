@@ -33,3 +33,5 @@ D:\Documentos\Visual Studio 2022\Proyecto final\obj\Debug\Proyecto final.csproj.
 D:\Documentos\Visual Studio 2022\Proyecto final\obj\Debug\Proyecto final.csproj.CoreCompileInputs.cache
 D:\Documentos\Visual Studio 2022\Proyecto final\obj\Debug\Proyecto final.exe
 D:\Documentos\Visual Studio 2022\Proyecto final\obj\Debug\Proyecto final.pdb
+D:\Documentos\Visual Studio 2022\Proyecto final\obj\Debug\GestionAnimales.g.cs
+D:\Documentos\Visual Studio 2022\Proyecto final\obj\Debug\GestionAnimales.baml

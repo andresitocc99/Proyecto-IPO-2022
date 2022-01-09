@@ -55,11 +55,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Animal.cs" />
+    <Compile Include="Perros.cs" />
+    <Compile Include="GestionAnimales.xaml.cs">
+      <DependentUpon>GestionAnimales.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Socio.cs" />
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
+    <Page Include="GestionAnimales.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -125,10 +132,13 @@
     <Resource Include="Images\save.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="resources\Animales.xml" />
+    <Resource Include="resources\Perros.xml" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="resources\Socios.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\andresitocc99.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

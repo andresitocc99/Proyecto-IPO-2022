@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Proyecto_final
 {
-    class Animal
+    class Perros
     {
-        public Animal(string nombre, string sexo, string raza, int tamanio, int peso, int edad, string chip, string vacunado, string estado_animal, string enfermo)
+        public Perros(string nombre, string sexo, string raza, int tamanio, int peso, int edad, string ppp, string vacunado, string enfermo,Uri foto)
         {
             this.nombre = nombre;
             this.sexo = sexo;
@@ -16,10 +16,10 @@ namespace Proyecto_final
             this.tamanio = tamanio;
             this.peso = peso;
             this.edad = edad;
-            this.chip = chip;
+            this.ppp = ppp;
             this.vacunado = vacunado ;
-            this.estado_animal = estado_animal;
             this.enfermo = enfermo;
+            this.foto = foto;
         }
 
         public string nombre { get; set; }
@@ -28,10 +28,10 @@ namespace Proyecto_final
         public int tamanio { get; set; }
         public int peso { get; set; }
         public int edad { get; set; } 
-        public string chip { get; set; }
+        public string ppp { get; set; }
         public string vacunado { get; set; }
-        public string estado_animal { get; set; }
         public string enfermo { get; set; }
+        public Uri foto { get; set; }
 
 
     }

@@ -21,7 +21,7 @@ namespace Proyecto_final
     /// </summary>
     public partial class MainWindow : Window    {
 
-        private List<Animal> listaAnimales;
+        private List<Perros> listaAnimales;
         private List<Socio> socios;
    
 
@@ -92,7 +92,7 @@ namespace Proyecto_final
                 if (check_Login (TextUsuario.Text, PasswordBox.Password) == true) 
                 {
                     
-                    Window1 windowMain = new Window1(get_Socio(socios, TextUsuario.Text, PasswordBox.Password));
+                    Window1 windowMain = new Window1(TextUsuario.Text, PasswordBox.Password);
                     windowMain.Show();
                     this.Close();
                 }
@@ -136,12 +136,12 @@ namespace Proyecto_final
         {
             List<Socio> lista = new List<Socio>();
             XmlDocument doc = new XmlDocument();
-            var fichero = Application.GetResourceStream(new Uri("resources/Voluntarios.xml", UriKind.Relative));
+            var fichero = Application.GetResourceStream(new Uri("resources/Socios.xml", UriKind.Relative));
             doc.Load(fichero.Stream);
 
             foreach (XmlNode node in doc.DocumentElement.ChildNodes)
             {
-                var nuevoVoluntario = new Socio("", "", "", "", "", "");
+                var nuevoVoluntario = new Socio("", "", "", "", "", "",null);
 
                 nuevoVoluntario.username = node.Attributes["Username"].Value;
                 nuevoVoluntario.password = node.Attributes["Contrasenia"].Value;
@@ -149,6 +149,7 @@ namespace Proyecto_final
                 nuevoVoluntario.Apellidos = node.Attributes["Apellidos"].Value;
                 nuevoVoluntario.dni = node.Attributes["DNI"].Value;
                 nuevoVoluntario.tlf = node.Attributes["Telefono"].Value;
+                nuevoVoluntario.Foto_Perfil = new Uri (node.Attributes["Foto_Perfil"].Value, UriKind.Relative);
 
                 lista.Add(nuevoVoluntario);
             }
