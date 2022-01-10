@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Proyecto_final"
         mc:Ignorable="d"
-        Title="GestionVoluntarios" Height="700" Width="1000" Background="#FFD5EFFF">
+        Title="GestionVoluntarios" Height="700" Width="1000" Background="#FFD5EFFF" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="25"/>
@@ -23,8 +23,6 @@
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
-        <Button x:Name="btnVolver" Grid.Column="1" Margin="0,25,0,0" Grid.Row="3" Content="Volver" HorizontalAlignment="Center" VerticalAlignment="Top" Width="118" Height="20" FontWeight="Bold"/>
-
         <ListBox x:Name="lstVoluntarios" Grid.Column="1" Margin="5" Grid.Row="2" ItemsSource="{Binding}" BorderThickness="3" BorderBrush="#FF3470E6" SelectionChanged="lstVoluntarios_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
@@ -40,14 +38,14 @@
                     <Setter Property="Margin" Value="2"/>
                     <Style.Triggers>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter Property="Foreground" Value="Green"/>
+                            <Setter Property="Foreground" Value="Blue"/>
                             <Setter Property="FontWeight" Value="Bold"/>
-                            <Setter Property="BorderBrush" Value="Green"/>
+                            <Setter Property="BorderBrush" Value="Blue"/>
                             <Setter Property="BorderThickness" Value="3"/>
-                            <Setter Property="Background" Value="LightGreen"/>
+                            <Setter Property="Background" Value="LightBlue"/>
                         </Trigger>
                         <Trigger Property="ItemsControl.AlternationIndex" Value="1">
-                            <Setter Property="Background" Value="LightGreen"/>
+                            <Setter Property="Background" Value="LightBlue"/>
                         </Trigger>
                     </Style.Triggers>
                 </Style>
@@ -116,10 +114,10 @@
 
 
                 <Image x:Name="imgFoto" Height="180" Width="140" Source="{Binding ElementName=lstVoluntarios, Path=SelectedItem.Foto_Perfil}" Grid.Row="1" Grid.Column="3" Grid.RowSpan="5" Margin="15,10,15,10"  />
-                <TextBox x:Name="txtNombre" FontWeight="Bold" FontSize="12" Text="{Binding ElementName=lstVoluntarios, Path=SelectedItem.Nombre}" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" Width="180" VerticalAlignment="Center" Height="25" />
-                <TextBox x:Name="txtApellidos" Text="{Binding ElementName=lstVoluntarios, Path=SelectedItem.Apellidos}" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" FontSize="12" VerticalAlignment="Center" Width="180" Height="25"/>
-                <TextBox x:Name="txtEdad" Text="{Binding ElementName=lstVoluntarios, Path=SelectedItem.Edad}" Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" FontSize="12" VerticalAlignment="Center" Width="180" Height="25"/>
-                <TextBox x:Name="txtDNI" Text="{Binding ElementName=lstVoluntarios, Path=SelectedItem.DNI}" Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center" FontSize="12" VerticalAlignment="Center" Width="180" Height="25"/>
+                <TextBox x:Name="txtNombre" FontWeight="Bold" FontSize="12" Text="{Binding ElementName=lstVoluntarios, Path=SelectedItem.Nombre}" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" Width="180" VerticalAlignment="Center" Height="25" PreviewTextInput="txtString_PTI" />
+                <TextBox x:Name="txtApellidos" Text="{Binding ElementName=lstVoluntarios, Path=SelectedItem.Apellidos}" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" FontSize="12" VerticalAlignment="Center" Width="180" Height="25" PreviewTextInput="txtString_PTI"/>
+                <TextBox x:Name="txtEdad" Text="{Binding ElementName=lstVoluntarios, Path=SelectedItem.Edad}" Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" FontSize="12" VerticalAlignment="Center" Width="180" Height="25" PreviewTextInput="txtInt_PTI"/>
+                <TextBox x:Name="txtDNI" Text="{Binding ElementName=lstVoluntarios, Path=SelectedItem.DNI}" Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center" FontSize="12" VerticalAlignment="Center" Width="180" Height="25" PreviewTextInput="txtString_PTI"/>
                 <Button x:Name="btnFotoAnadir" Grid.Row="5" Grid.Column="2"  BorderBrush="Black"  BorderThickness="3" Background="#FF5BB0FF" ToolTip="Pulse para añadir la fotografía del perro" IsEnabled="True" HorizontalAlignment="Left" Margin="20,0,0,0" Click="btnFotoAnadir_Click" >
                     <Image Source="Images/add_animal.png"/>
                 </Button>
@@ -154,7 +152,7 @@
                 <Label FontWeight="Bold" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" FontSize="16">E-Mail:</Label>
                 <Label FontWeight="Bold" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" FontSize="16">Telefono:</Label>
                 <TextBox x:Name="txtEmail" FontWeight="Bold" FontSize="12" Text="{Binding ElementName=lstVoluntarios, Path=SelectedItem.Email}" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" Width="170" VerticalAlignment="Center" Height="25" />
-                <TextBox x:Name="txtTelefono" Text="{Binding ElementName=lstVoluntarios, Path=SelectedItem.Telefono}" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" FontSize="12" VerticalAlignment="Center" Width="170"/>
+                <TextBox x:Name="txtTelefono" Text="{Binding ElementName=lstVoluntarios, Path=SelectedItem.Telefono}" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" FontSize="12" VerticalAlignment="Center" Width="170" Height="25" PreviewTextInput="txtInt_PTI"/>
 
             </Grid>
         </GroupBox>
@@ -181,8 +179,8 @@
 
                 <Label FontWeight="Bold" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" FontSize="16">Horario:</Label>
                 <Label FontWeight="Bold" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" FontSize="16">Zona:</Label>
-                <TextBox x:Name="txtHorario" FontWeight="Bold" FontSize="12" Text="{Binding ElementName=lstVoluntarios, Path=SelectedItem.Horario}" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" Width="170" VerticalAlignment="Center" Height="25" />
-                <TextBox x:Name="txtZona" Text="{Binding ElementName=lstVoluntarios, Path=SelectedItem.Zona}" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" FontSize="12" VerticalAlignment="Center" Width="170" Height="25"/>
+                <TextBox x:Name="txtHorario" FontWeight="Bold" FontSize="12" Text="{Binding ElementName=lstVoluntarios, Path=SelectedItem.Horario}" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" Width="170" VerticalAlignment="Center" Height="25" PreviewTextInput="txtString_PTI" />
+                <TextBox x:Name="txtZona" Text="{Binding ElementName=lstVoluntarios, Path=SelectedItem.Zona}" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" FontSize="12" VerticalAlignment="Center" Width="170" Height="25" PreviewTextInput="txtString_PTI"/>
 
             </Grid>
 
@@ -238,6 +236,19 @@
             </Grid>
         </GroupBox>
 
+        <Button x:Name="BtnSalir" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Center" Width="118" Height="40" Click="btnExit_Click" FontWeight="Bold" BorderBrush="#FF0063D0" BorderThickness="3" Background="#FF9BDDFF" Grid.Column="3" Margin="350,0,0,0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Image Height="25" Width="25" Source="Images/cerrar.png" Margin="7,0,0,0"/>
+                <TextBlock Text="SALIR" FontSize="14" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FF0063D0" Margin="9,0,11,0"/>
+            </StackPanel>
+        </Button>
+
+        <Button x:Name="BtnVolver" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Center" Width="118" Height="40" Click="btnVolver_Click" FontWeight="Bold" BorderBrush="#FF0063D0" BorderThickness="3" Background="#FF9BDDFF" Grid.Column="3" Margin="160,0,0,0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Image Height="30" Width="35" Source="Images/salir.png" Margin="7,0,0,0"/>
+                <TextBlock Text="VOLVER" FontSize="14" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FF0063D0" Margin="9,0,11,0"/>
+            </StackPanel>
+        </Button>
 
 
     </Grid>

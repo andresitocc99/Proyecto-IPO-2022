@@ -16,26 +16,72 @@ using System.Xml;
 
 namespace Proyecto_final
 {
-    /// <summary>
-    /// Lógica de interacción para MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window    {
+        public partial class MainWindow : Window    {
 
-        private List<Socio> socios;
+        private List<Trabajador> trabajadores;
+        private BitmapImage imgChecked = new BitmapImage(new Uri("Images/check.png", UriKind.Relative));
+        private BitmapImage imgCross = new BitmapImage(new Uri("Images/cross.png", UriKind.Relative));
+
         public MainWindow()
         {
             InitializeComponent();
-            socios = CargarListaSocios();
-            DataContext = socios;
+            trabajadores = CargarListaTrabajadores();
+            DataContext = trabajadores;
         }
 
         private void TextUsuario_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.Key == Key.Enter)
+            if(e.Key == Key.Return)
             {
-                PasswordBox.IsEnabled = true;
-                PasswordBox.Focus();
+                if (!String.IsNullOrEmpty(TextUsuario.Text) && ComprobarEntrada_Username(TextUsuario.Text,TextUsuario,imageCheckUsuario)) {
+                    
+                    PasswordBox.IsEnabled = true;
+                    PasswordBox.Focus();
+                    TextUsuario.IsEnabled = false;
+                } else
+                {
+                    TextUsuario.BorderBrush = Brushes.Red;
+                    imageCheckUsuario.Source = imgCross;
+                    
+                }
+                
             }
+        }
+
+        private Trabajador get_Trabajador(List<Trabajador> trabajadores, string TextoUsuario, string password)
+        {
+            Trabajador trabajador = null;
+            for (int i = 0; i < trabajadores.Count; i++)
+            {
+                if (TextoUsuario.Equals(trabajadores[i].username) && password.Equals(trabajadores[i].password))
+                {
+                    trabajador = trabajadores[i];
+                }
+            }
+
+            return trabajador;
+        }
+
+        private Boolean ComprobarEntrada_Username (string valorIntroducido, Control componenteEntrada, Image imagenFeedBack)
+        {
+            Boolean valido = false;
+            componenteEntrada.BorderThickness = new Thickness(2);
+
+            for (int i = 0; i < trabajadores.Count; i++)
+            {
+
+                if (trabajadores[i].username.Equals(valorIntroducido))
+                {
+                    componenteEntrada.BorderBrush = Brushes.Green;
+                    componenteEntrada.Background = Brushes.LightGreen;
+                    imagenFeedBack.Source = imgChecked;
+                    valido = true;
+                }
+    
+            }
+
+
+            return valido;
         }
 
         private void lblRecordarContrasena_MouseEnter(object sender, MouseEventArgs e)
@@ -70,7 +116,8 @@ namespace Proyecto_final
 
         private void BtnLoginExit_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            VentanaSalida salida = new VentanaSalida();
+            salida.Show();
         }
 
         public void BtnLogin_Click(object sender, RoutedEventArgs e)
@@ -99,26 +146,12 @@ namespace Proyecto_final
             }
         }
 
-        private Socio get_Socio(List<Socio> socios, string TextoUsuario, string password)
-        {
-            Socio socio = null;
-            for (int i = 0; i < socios.Count; i++)
-            {
-                if (TextoUsuario.Equals(socios[i].username) && password.Equals(socios[i].password))
-                {
-                    socio = socios[i];
-                }
-            }
-
-            return socio;
-        }
-
         private Boolean check_Login (string TextoUsuario, string password)
         {
             Boolean check = false;
-            for (int i = 0; i<socios.Count; i++)
+            for (int i = 0; i< trabajadores.Count; i++)
             {
-                if (TextoUsuario.Equals(socios[i].username) && password.Equals(socios[i].password))
+                if (TextoUsuario.Equals(trabajadores[i].username) && password.Equals(trabajadores[i].password))
                 {
                     check = true;
                 }
@@ -127,30 +160,57 @@ namespace Proyecto_final
             return check;
         }
 
-        private List<Socio> CargarListaSocios()
+        private List<Trabajador> CargarListaTrabajadores()
         {
-            List<Socio> lista = new List<Socio>();
+            List<Trabajador> lista = new List<Trabajador>();
             XmlDocument doc = new XmlDocument();
-            var fichero = Application.GetResourceStream(new Uri("resources/Socios.xml", UriKind.Relative));
+            var fichero = Application.GetResourceStream(new Uri("resources/Trabajador.xml", UriKind.Relative));
             doc.Load(fichero.Stream);
 
             foreach (XmlNode node in doc.DocumentElement.ChildNodes)
             {
-                var nuevoVoluntario = new Socio("", "", "", "", "", "",null);
+                var nuevoTrabajador = new Trabajador("", "", "", "", "", "",null);
 
-                nuevoVoluntario.username = node.Attributes["Username"].Value;
-                nuevoVoluntario.password = node.Attributes["Contrasenia"].Value;
-                nuevoVoluntario.Nombre = node.Attributes["Nombre"].Value;
-                nuevoVoluntario.Apellidos = node.Attributes["Apellidos"].Value;
-                nuevoVoluntario.dni = node.Attributes["DNI"].Value;
-                nuevoVoluntario.tlf = node.Attributes["Telefono"].Value;
-                nuevoVoluntario.Foto_Perfil = new Uri (node.Attributes["Foto_Perfil"].Value, UriKind.Relative);
+                nuevoTrabajador.username = node.Attributes["Username"].Value;
+                nuevoTrabajador.password = node.Attributes["Contrasenia"].Value;
+                nuevoTrabajador.Nombre = node.Attributes["Nombre"].Value;
+                nuevoTrabajador.Apellidos = node.Attributes["Apellidos"].Value;
+                nuevoTrabajador.dni = node.Attributes["DNI"].Value;
+                nuevoTrabajador.tlf = node.Attributes["Telefono"].Value;
+                nuevoTrabajador.Foto_Perfil = new Uri (node.Attributes["Foto_Perfil"].Value, UriKind.Relative);
 
-                lista.Add(nuevoVoluntario);
+                lista.Add(nuevoTrabajador);
             }
 
             return lista;
         }
 
+        private void PasswordBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                if (!String.IsNullOrEmpty(TextUsuario.Text))
+                {
+
+                    PasswordBox.IsEnabled = true;
+                    PasswordBox.BorderBrush = Brushes.Green;
+                    BtnLogin.Focus();
+                   
+                }
+                else
+                {
+                    PasswordBox.BorderBrush = Brushes.Red;
+                    imageCheckPassword.Source = imgCross;
+
+                }
+
+            }
+        }
+
+        private void btnAyuda_Click(object sender, RoutedEventArgs e)
+        {
+            Ayuda ventanaAyuda = new Ayuda();
+            ventanaAyuda.Show();
+        }
     }
 }

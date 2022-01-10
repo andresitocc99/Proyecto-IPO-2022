@@ -1,0 +1,68 @@
+﻿<Window x:Class="Proyecto_final.Ayuda"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Proyecto_final"
+        mc:Ignorable="d"
+        Title="Ayuda" Height="350" Width="450" Background="#FFD5EFFF" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition  Width="40"/>
+            <ColumnDefinition  Width="185"/>
+            <ColumnDefinition  Width="185"/>
+            <ColumnDefinition  Width="40"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="10"/>
+
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Background="#FF65C3FF" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" BorderBrush="#FF0063D0" BorderThickness="3" Width="250" Height="40">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <Image Height="30" Width="20" Source="/Images/info.png" Margin="30,0,0,0" />
+                <TextBlock Text="Información Aplicación" Margin="10,0,0,0" FontSize="14" FontWeight="Bold" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Label>
+
+        <Label Grid.Row="3" Grid.Column="1" Background="#FF65C3FF" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" BorderBrush="#FF0063D0" BorderThickness="3" Width="170" Height="40">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <Image Height="30" Width="20" Source="/Images/persona.png" Margin="30,0,0,0" />
+                <TextBlock Text="Creador" Margin="10,0,0,0" FontSize="14" FontWeight="Bold" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Label>
+
+        <Label Grid.Row="4" Grid.Column="1" Background="#FF65C3FF" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" BorderBrush="#FF0063D0" BorderThickness="3" Width="170" Height="40">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Image Height="15" Width="25" Source="/Images/calendario.png" />
+                <TextBlock Text="Fecha Lanzamiento" Margin="2,0,0,0" FontSize="14" FontWeight="Bold" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Label>
+
+        <Label Grid.Row="5" Grid.Column="1" Background="#FF65C3FF" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" BorderBrush="#FF0063D0" BorderThickness="3" Width="170" Height="40">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Image Height="30" Width="20" Source="/Images/ficha.png" Margin="40,0,0,0" />
+                <TextBlock Text="Versión" Margin="2,0,0,0" FontSize="14" FontWeight="Bold" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Label>
+
+        <TextBox Grid.Row="3" Grid.Column="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="Andrés Castellanos Cantos" IsReadOnly="True" Height="40" Width="150" HorizontalAlignment="Center" />
+        <TextBox Grid.Row="4" Grid.Column="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="09/01/2022" IsReadOnly="True" Height="40" Width="150" HorizontalAlignment="Center" />
+        <TextBox Grid.Row="5" Grid.Column="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="1.0" IsReadOnly="True" Height="40" Width="150" HorizontalAlignment="Center" />
+
+        <Button x:Name="BtnVolver" Grid.Row="6" VerticalAlignment="Center" Width="118" Height="40" Click="BtnExit_Click" FontWeight="Bold" BorderBrush="#FF0063D0" BorderThickness="3" Background="#FF9BDDFF" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Image Height="30" Width="35" Source="Images/salir.png" Margin="7,0,0,0"/>
+                <TextBlock Text="VOLVER" FontSize="14" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FF0063D0" Margin="9,0,11,0"/>
+            </StackPanel>
+        </Button>
+    </Grid>
+</Window>

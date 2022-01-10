@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Proyecto_final"
         
         mc:Ignorable="d"
-        Title="Window1" Height="625" Width="500">
+        Title="Window1" Height="650" Width="500" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid >
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -23,15 +23,16 @@
             <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
 
 
-        <GroupBox HorizontalAlignment="Center" Height="320" Grid.Row="1" VerticalAlignment="Top" Width="416" BorderThickness="1" Background="#FFE1F1FF" FontWeight="Bold" BorderBrush="Black">
+        <GroupBox HorizontalAlignment="Center" Height="320" Grid.Row="1" VerticalAlignment="Top" Width="416" Background="#FFE1F1FF" FontWeight="Bold" BorderBrush="#FF0063D0" BorderThickness="2">
             <GroupBox.Header>
                 <StackPanel Orientation="Horizontal" Width="190">
                     <Image Source="Images/ficha.png" Margin="10" Width="30" Height="30"/>
-                    <TextBlock x:Name="cabeceraInformacionSocio" FontSize="14" FontWeight="Bold" Text="Informacíon Socio" VerticalAlignment="Center" Foreground="Black"/>
+                    <TextBlock x:Name="cabeceraInformacionSocio" FontSize="14" FontWeight="Bold" Text="Informacíon Socio" VerticalAlignment="Center" Foreground="#FF0063D0"/>
                 </StackPanel>
             </GroupBox.Header>
 
@@ -54,12 +55,12 @@
 
                 </Grid.RowDefinitions>
 
-                <Label HorizontalAlignment="Right" Content="Username" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"/>
-                <Label HorizontalAlignment="Right" Content="Nombre" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center"/>
-                <Label HorizontalAlignment="Right" Content="Apellidos" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center"/>
-                <Label HorizontalAlignment="Right" Content="DNI" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center"/>
-                <Label HorizontalAlignment="Right" Content="Telefono" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center"/>
-                <Label HorizontalAlignment="Right" Content="Ult.Acceso" Grid.Row="6" Grid.Column="1" VerticalAlignment="Center"/>
+                <Label HorizontalAlignment="Right" Content="Username" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Foreground="#FF0063D0"/>
+                <Label HorizontalAlignment="Right" Content="Nombre" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Foreground="#FF0063D0"/>
+                <Label HorizontalAlignment="Right" Content="Apellidos" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" Foreground="#FF0063D0"/>
+                <Label HorizontalAlignment="Right" Content="DNI" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" Foreground="#FF0063D0"/>
+                <Label HorizontalAlignment="Right" Content="Telefono" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" Foreground="#FF0063D0"/>
+                <Label HorizontalAlignment="Right" Content="Ult.Acceso" Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" Foreground="#FF0063D0"/>
 
                 <TextBox HorizontalAlignment="Center" Text="{Binding username}" Grid.Row="1" Grid.Column="2" Width="115" Margin="10,0,0,0" Height=" 20" VerticalAlignment="Center"/>
                 <TextBox HorizontalAlignment="Center" Text="{Binding Nombre}" Grid.Row="2" Grid.Column="2" Width="115" Margin="10,0,0,0" Height=" 20" VerticalAlignment="Center"/>
@@ -68,24 +69,40 @@
                 <TextBox HorizontalAlignment="Center" Text="{Binding tlf}" Grid.Row="5" Grid.Column="2" Width="115" Margin="10,0,0,0" Height=" 20" VerticalAlignment="Center"/>
                 <TextBox HorizontalAlignment="Center" Text="10/01/2021" Grid.Row="6" Grid.Column="2" Width="115" Margin="10,0,0,0" Height=" 20" VerticalAlignment="Center"/>
 
-                <Border BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Center" Width="126" Grid.Column="0"  Height="186" Grid.RowSpan="6" Grid.Row="0">
+                <Border BorderBrush="#FF0063D0" BorderThickness="2" HorizontalAlignment="Center" Width="126" Grid.Column="0"  Height="186" Grid.RowSpan="6" Grid.Row="0">
                     <Image x:Name="UserAvatar" Source="{Binding Foto_Perfil}" Margin="0,1,-1,2"/>
                 </Border>
 
             </Grid>
         </GroupBox>
 
-        <Button x:Name="BtnExit" Content="Salir" HorizontalAlignment="Center" Grid.Row="6" VerticalAlignment="Top" Width="118" Height="30" Click="BtnExit_Click" FontWeight="Bold" Margin="0,10,0,0"/>
-        <Button Content="Gestión Animales" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Click="btnGestionAnimales_Click" Height="31" Width="300"/>
-        <Button Content="Gestión Voluntarios Protectora" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Center" Click="btnGestionVoluntarios_Click" Height="31" Width="300"/>
-        <Button Content="Gestión Socios" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Click="btnGestionAnimales_Click" Height="31" Width="300"/>
-        <Button x:Name="btnBorrarAnimal" Grid.Row="6" BorderThickness="2" BorderBrush="DeepSkyBlue" HorizontalAlignment="Left" VerticalAlignment="Center" IsEnabled="True" Margin="444,0,0,0" Width="40" Height="40" >
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF85FFFC"/>
-                    <GradientStop Color="White" Offset="1"/>
-                </LinearGradientBrush>
-            </Button.Background>
+        <Button x:Name="BtnExit" HorizontalAlignment="Left" Grid.Row="6" VerticalAlignment="Center" Width="118" Height="40" Click="BtnExit_Click" FontWeight="Bold" Margin="250,0,0,0" BorderBrush="#FF0063D0" BorderThickness="3" Background="#FF9BDDFF">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Image Height="20" Width="20" Source="Images/cerrar.png" Margin="7,0,0,0"/>
+                <TextBlock Text="SALIR" FontSize="14" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FF0063D0" Margin="9,0,11,0"/>
+            </StackPanel>
+        </Button>
+        <Button x:Name="btnGestionarAnimales" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Click="btnGestionAnimales_Click" Height="40" Width="300" BorderBrush="#FF0063D0" BorderThickness="3" Background="#FF9BDDFF">
+            <StackPanel Orientation="Horizontal">
+                <Image Height="25" Width="25" Source="Images/perro.png" Margin="7,0,0,0"/>
+                <TextBlock Text="GESTIONAR ANIMALES" FontSize="14" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FF0063D0" Margin="9,0,11,0"/>
+            </StackPanel>
+        </Button>
+
+        <Button x:Name="btnGestionarVoluntarios" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Center" Click="btnGestionVoluntarios_Click" Height="40" Width="300" BorderBrush="#FF0063D0" BorderThickness="3" Background="#FF9BDDFF">
+            <StackPanel Orientation="Horizontal">
+                <Image Height="30" Width="30" Source="Images/voluntario.png" Margin="7,0,0,0"/>
+                <TextBlock Text="GESTIONAR VOLUNTARIOS" FontSize="14" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FF0063D0" Margin="9,0,11,0"/>
+            </StackPanel>
+        </Button>
+        <Button x:Name="btnGestionSocios" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Click="btnGestionSocios_Click" Height="40" Width="300" BorderBrush="#FF0063D0" BorderThickness="3" Background="#FF9BDDFF">
+            <StackPanel Orientation="Horizontal">
+                <Image Height="30" Width="30" Source="Images/socios.png" Margin="7,0,0,0"/>
+                <TextBlock Text="GESTIONAR SOCIOS" FontSize="14" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FF0063D0" Margin="9,0,11,0"/>
+            </StackPanel>
+        </Button>
+        <Button x:Name="btnAyuda" Grid.Row="6" HorizontalAlignment="Left" VerticalAlignment="Center" IsEnabled="True" Margin="159,0,0,0" Width="40" Height="40" BorderBrush="#FF0063D0" BorderThickness="3" Background="#FF9BDDFF" Click="btnAyuda_Click">
+
             <Image Height="30" Width="30" Source="Images/ayuda.png"  HorizontalAlignment="Center"/>
         </Button>
 

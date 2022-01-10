@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Proyecto_final"
         mc:Ignorable="d"
-        Title="GestionSocios" Height="900" Width="900" Background="#FFD5EFFF">
+        Title="GestionSocios" Height="700" Width="1000" Background="#FFD5EFFF" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" >
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="25"/>
             <ColumnDefinition Width="300"/>
             <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="525"/>
-            <ColumnDefinition Width="25*"/>
+            <ColumnDefinition Width="650"/>
+            <ColumnDefinition Width="50"/>
         </Grid.ColumnDefinitions>
 
 
@@ -23,13 +23,25 @@
             <RowDefinition Height="41*"/>
         </Grid.RowDefinitions>
 
-        <Button x:Name="btnVolver" Grid.Column="1" Margin="31,0,0,0" Grid.Row="3" Content="Volver" HorizontalAlignment="Left" VerticalAlignment="Center" Width="117" Height="20" FontWeight="Bold" />
+        <Button x:Name="BtnSalir" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Bottom" Width="118" Height="40" Click="BtnExit_Click" FontWeight="Bold" BorderBrush="#FF0063D0" BorderThickness="3" Background="#FF9BDDFF" Grid.Column="3" Margin="391,0,0,32" Grid.RowSpan="2">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Image Height="20" Width="20" Source="Images/cerrar.png" Margin="7,0,0,0"/>
+                <TextBlock Text="SALIR" FontSize="14" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FF0063D0" Margin="9,0,11,0"/>
+            </StackPanel>
+        </Button>
 
-        <ListBox x:Name="lstSocios" Grid.Column="1" Margin="5" Grid.Row="2" ItemsSource="{Binding}"  BorderThickness="3" BorderBrush="#FF3470E6">
+        <Button x:Name="BtnVolver" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Bottom" Width="118" Height="40" Click="btnVolver_Click" FontWeight="Bold" BorderBrush="#FF0063D0" BorderThickness="3" Background="#FF9BDDFF" Grid.Column="3" Margin="150,0,0,32" Grid.RowSpan="2">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Image Height="30" Width="35" Source="Images/salir.png" Margin="7,0,0,0"/>
+                <TextBlock Text="VOLVER" FontSize="14" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FF0063D0" Margin="9,0,11,0"/>
+            </StackPanel>
+        </Button>
+
+        <ListBox x:Name="lstSocios" Grid.Column="1" Margin="5" Grid.Row="2" ItemsSource="{Binding}"  BorderThickness="3" BorderBrush="#FF3470E6" SelectionChanged="lstSocios_SelectionChanged" Height="600">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <Image Width="40" Height="40" Source="{Binding Foto}"/>
+                        <Image Width="40" Height="40" Source="{Binding Foto_Perfil}"/>
                         <TextBlock VerticalAlignment="Center" Margin="20,0,0,0" Text="{Binding Nombre}" FontSize="18" FontWeight="Bold"/>
                     </StackPanel>
                 </DataTemplate>
@@ -40,14 +52,14 @@
                     <Setter Property="Margin" Value="2"/>
                     <Style.Triggers>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter Property="Foreground" Value="Green"/>
+                            <Setter Property="Foreground" Value="Blue"/>
                             <Setter Property="FontWeight" Value="Bold"/>
-                            <Setter Property="BorderBrush" Value="Green"/>
+                            <Setter Property="BorderBrush" Value="Blue"/>
                             <Setter Property="BorderThickness" Value="3"/>
-                            <Setter Property="Background" Value="LightGreen"/>
+                            <Setter Property="Background" Value="LightBlue"/>
                         </Trigger>
                         <Trigger Property="ItemsControl.AlternationIndex" Value="1">
-                            <Setter Property="Background" Value="LightGreen"/>
+                            <Setter Property="Background" Value="LightBlue"/>
                         </Trigger>
                     </Style.Triggers>
                 </Style>
@@ -68,5 +80,159 @@
                 </ContextMenu>
             </ListBox.ContextMenu>
         </ListBox>
+
+        <GroupBox x:Name="grupoBoxPerro" Grid.Column="3" Grid.Row="2" Height="290" VerticalAlignment="Top" BorderThickness="0">
+            <GroupBox.Header>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Images/ficha.png" Margin="10" Width="30" Height="30"/>
+                    <TextBlock x:Name="cabeceraDatosVoluntario" FontSize="14" FontWeight="Bold" Text="Datos Personales Socio" VerticalAlignment="Center"/>
+                </StackPanel>
+            </GroupBox.Header>
+
+            <Grid x:Name="Grid_Datos" Width="500" Height="230" VerticalAlignment="Top">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="170"/>
+
+                    <ColumnDefinition Width="10"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="10"/>
+
+                </Grid.RowDefinitions>
+
+                <Border
+                    BorderBrush="#FF3470E6"
+                    BorderThickness="3"
+                    Grid.RowSpan="10"
+                    
+                    CornerRadius="10" Grid.ColumnSpan="6"/>
+
+                <Label FontWeight="Bold" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" FontSize="16">Nombre:</Label>
+                <Label FontWeight="Bold" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" FontSize="16">Apellidos:</Label>
+                <Label FontWeight="Bold" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" FontSize="16">Telefono:</Label>
+                <Label FontWeight="Bold" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" FontSize="16">DNI:</Label>
+                <Label FontWeight="Bold" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" FontSize="16">Fotografía:</Label>
+
+
+                <Image x:Name="imgFoto" Height="180" Width="140" Source="{Binding ElementName=lstSocios, Path=SelectedItem.Foto_Perfil}" Grid.Row="1" Grid.Column="3" Grid.RowSpan="5" Margin="15,10,15,10"  />
+                <TextBox x:Name="txtNombre" FontWeight="Bold" FontSize="12" Text="{Binding ElementName=lstSocios, Path=SelectedItem.Nombre}" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" Width="180" VerticalAlignment="Center" Height="25" PreviewTextInput="txtString_PTI"  />
+                <TextBox x:Name="txtApellidos" Text="{Binding ElementName=lstSocios, Path=SelectedItem.Apellidos}" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" FontSize="12" VerticalAlignment="Center" Width="180" Height="25" PreviewTextInput="txtString_PTI" />
+                <TextBox x:Name="txtTelefono" Text="{Binding ElementName=lstSocios, Path=SelectedItem.Telefono}" Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" FontSize="12" VerticalAlignment="Center" Width="180" Height="25" PreviewTextInput="txtInt_PTI" />
+                <TextBox x:Name="txtDNI" Text="{Binding ElementName=lstSocios, Path=SelectedItem.DNI}" Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center" FontSize="12" VerticalAlignment="Center" Width="180" Height="25" />
+                <Button x:Name="btnFotoAnadir" Grid.Row="5" Grid.Column="2"  BorderBrush="Black"  BorderThickness="3" Background="#FF5BB0FF" ToolTip="Pulse para añadir la fotografía del perro" IsEnabled="True" HorizontalAlignment="Left" Margin="20,0,0,0" Click="btnFotoAnadir_Click" >
+                    <Image Source="Images/add_animal.png"/>
+                </Button>
+                <Image x:Name="imgRelleno" Grid.Row="8" Grid.Column="4" Margin="77,5,23,5" Width="30" Height="30"/>
+
+                <TextBlock x:Name="txtHide" Visibility="Hidden" Text="{Binding ElementName=lstVoluntarios, Path=SelectedItem.Foto_Perfil}"/>
+
+            </Grid>
+
+        </GroupBox>
+
+        <GroupBox x:Name="grupoBoxDatosBancarios" Grid.Column="3" Grid.Row="2" Height="160" VerticalAlignment="Top" Margin="10,290,0,0" Width="500" HorizontalAlignment="Center" BorderThickness="0">
+            <GroupBox.Header>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Images/billete.png" Margin="10" Width="30" Height="30"/>
+                    <TextBlock x:Name="cabeceraDatosBancaros" FontSize="14" FontWeight="Bold" Text="Datos Bancarios" VerticalAlignment="Center"/>
+                </StackPanel>
+            </GroupBox.Header>
+
+
+
+            <Grid Height="100" VerticalAlignment="Top" Width="450" HorizontalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="10"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="10"/>
+
+                    <ColumnDefinition Width="10"/>
+                </Grid.ColumnDefinitions>
+
+                <Border
+                    BorderBrush="#FF3470E6"
+                    BorderThickness="3"
+                    Grid.RowSpan="10"
+                    
+                    CornerRadius="10" Grid.ColumnSpan="7"/>
+                <Label FontWeight="Bold" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" FontSize="16">Entidad:</Label>
+                <Label FontWeight="Bold" Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" FontSize="16">Saldo (€):</Label>
+                <Label FontWeight="Bold" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" FontSize="16">IBAN:</Label>
+                <TextBox x:Name="txtEntidad" FontWeight="Bold" FontSize="12" Text="{Binding ElementName=lstSocios, Path=SelectedItem.Entidad_Bancaria}" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" Width="90" VerticalAlignment="Center" Height="25" PreviewTextInput="txtString_PTI" />
+                <TextBox x:Name="txtSaldo" FontWeight="Bold" FontSize="12" Text="{Binding ElementName=lstSocios, Path=SelectedItem.Saldo_Cuenta_Bancaria}" Grid.Column="4" Grid.Row="1" HorizontalAlignment="Center" Width="90" VerticalAlignment="Center" Height="25" PreviewTextInput="txtInt_PTI" />
+                <TextBox x:Name="txtIBAN" Text="{Binding ElementName=lstSocios, Path=SelectedItem.Cuenta_Bancaria}" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Left" FontSize="12" Width="250" Height="25" Grid.ColumnSpan="3"/>
+
+            </Grid>
+        </GroupBox>
+
+        <GroupBox x:Name="groupBoxGestion" Grid.Column="3"  Grid.Row="2" Width="500" Height="110" HorizontalAlignment="Center" Margin="0,450,0,0" BorderThickness="0" VerticalAlignment="Top">
+            <GroupBox.Header>
+                <StackPanel Orientation="Horizontal" Height="50">
+                    <Image Source="Images/configuracion.png" Margin="10" Width="30" Height="30"/>
+                    <TextBlock x:Name="cabeceraGestion" FontSize="14" FontWeight="Bold" Text="Gestiones" VerticalAlignment="Center"/>
+                </StackPanel>
+            </GroupBox.Header>
+            <Grid Height="40" VerticalAlignment="Top" Width="500" HorizontalAlignment="Center">
+                <Grid.ColumnDefinitions>
+
+                    <ColumnDefinition Width="125"/>
+                    <ColumnDefinition Width="125"/>
+                    <ColumnDefinition Width="125"/>
+                    <ColumnDefinition Width="125"/>
+
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="btnAnadirSocio" Grid.Column="0" Background="#FF5BB0FF" BorderThickness="3" BorderBrush="Black" HorizontalAlignment="Center" VerticalAlignment="Center" IsEnabled="True" Click="btnAnadirSocio_Click" >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Height="20" Width="20" Source="Images/add_animal.png" Margin="7,0,0,0"/>
+                        <TextBlock Text="Añadir" FontSize="14" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Margin="9,0,11,0"/>
+                    </StackPanel>
+                </Button>
+
+                <Button x:Name="btnEditarSocio" Grid.Column="1" Background="#FF5BB0FF" BorderThickness="3" BorderBrush="Black" HorizontalAlignment="Center" VerticalAlignment="Center" IsEnabled="False" Click="btnEditarSocio_Click" >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Height="20" Width="20" Source="Images/editar.png" Margin="7,0,0,0"/>
+                        <TextBlock x:Name="txtEditarSocio" Text="Editar" FontSize="14" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Margin="9,0,11,0"/>
+                    </StackPanel>
+                </Button>
+
+                <Button x:Name="btnEliminarSocio" Grid.Column="2" Background="#FF5BB0FF" BorderThickness="3" BorderBrush="Black" HorizontalAlignment="Center" VerticalAlignment="Center" IsEnabled="False" Click="btnEliminarSocio_Click" >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Height="20" Width="20" Source="Images/eliminar.png" Margin="7,0,0,0"/>
+                        <TextBlock Text="Eliminar" FontSize="14" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Margin="9,0,11,0"/>
+                    </StackPanel>
+                </Button>
+
+                <Button x:Name="btnBorrarCampos" Grid.Column="3" Background="#FF5BB0FF" BorderThickness="3" BorderBrush="Black" HorizontalAlignment="Center" VerticalAlignment="Center" IsEnabled="True"  >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Height="20" Width="20" Source="Images/borrar.png" Margin="7,0,0,0"/>
+                        <TextBlock Text="Borrar" FontSize="14" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Margin="9,0,11,0"/>
+                    </StackPanel>
+                </Button>
+
+
+            </Grid>
+        </GroupBox>
+
     </Grid>
 </Window>

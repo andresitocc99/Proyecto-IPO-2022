@@ -58,3 +58,7 @@ D:\Documentos\Visual Studio 2022\Proyecto final\obj\Debug\GestionSocios.g.cs
 D:\Documentos\Visual Studio 2022\Proyecto final\obj\Debug\GestionVoluntarios.g.cs
 D:\Documentos\Visual Studio 2022\Proyecto final\obj\Debug\GestionSocios.baml
 D:\Documentos\Visual Studio 2022\Proyecto final\obj\Debug\GestionVoluntarios.baml
+D:\Documentos\Visual Studio 2022\Proyecto final\obj\Debug\VentanaAyuda.g.cs
+D:\Documentos\Visual Studio 2022\Proyecto final\obj\Debug\VentanaSalida.g.cs
+D:\Documentos\Visual Studio 2022\Proyecto final\obj\Debug\VentanaAyuda.baml
+D:\Documentos\Visual Studio 2022\Proyecto final\obj\Debug\VentanaSalida.baml

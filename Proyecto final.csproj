@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="VentanaAyuda.xaml.cs">
+      <DependentUpon>VentanaAyuda.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GestionSocios.xaml.cs">
       <DependentUpon>GestionSocios.xaml</DependentUpon>
     </Compile>
@@ -66,10 +69,18 @@
       <DependentUpon>GestionAnimales.xaml</DependentUpon>
     </Compile>
     <Compile Include="Socio.cs" />
+    <Compile Include="Trabajador.cs" />
+    <Compile Include="VentanaSalida.xaml.cs">
+      <DependentUpon>VentanaSalida.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Voluntarios.cs" />
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
+    <Page Include="VentanaAyuda.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GestionAnimales.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -94,6 +105,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="VentanaSalida.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Window1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -150,7 +165,7 @@
     <Resource Include="resources\Perros.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="resources\Socios.xml" />
+    <Resource Include="resources\Trabajador.xml" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\andresitocc99.jpg" />
@@ -206,6 +221,41 @@
     <Resource Include="Images\angelgarcia.jpg" />
     <Resource Include="Images\bernievip.jpg" />
     <Resource Include="Images\yhorm.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\Socios.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\greta.jpg" />
+    <Resource Include="Images\pablo_iglesias.jpg" />
+    <Resource Include="Images\pique.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\billete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\perro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\voluntario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\socios.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\salir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\persona.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\calendario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\cerrar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -28,14 +28,15 @@ namespace Proyecto_final
         private string foto;
         private string username;
         private string password;
+        
 
         public GestionVoluntarios(string txtUsuario, string txtPassword)
         {
             InitializeComponent();
             listaVoluntarios = CargarListaVoluntarios();
-            DataContext = listaVoluntarios;
             username = txtUsuario;
             password = txtPassword;
+            DataContext = listaVoluntarios;
         }
 
         private List<Voluntarios> CargarListaVoluntarios()
@@ -271,7 +272,7 @@ namespace Proyecto_final
                 }
                 else
                 {
-                    MessageBox.Show("No se eliminará al perro", "Advertencia");
+                    MessageBox.Show("No se eliminará al voluntario", "Advertencia");
                 }
             }
             else
@@ -282,8 +283,8 @@ namespace Proyecto_final
 
         private void btnVolver_Click(object sender, RoutedEventArgs e)
         {
-            Window1 ventana = new Window1(username, password);
-            ventana.Show();
+            Window1 menuPrincipal = new Window1(username, password);
+            menuPrincipal.Show();
             this.Hide();
         }
 
@@ -305,6 +306,12 @@ namespace Proyecto_final
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+            VentanaSalida salida = new VentanaSalida();
+            salida.Show();
         }
     }
 }

@@ -19,59 +19,60 @@ namespace Proyecto_final
    
     public partial class Window1 : Window
     {
-        private Socio socioLogeado;
+        private Trabajador trabajador;
         private string username;
         private string password;
         
         public Window1 (string txtUsuario, string txtPassword)
         {
-            socioLogeado = get_Socio (CargarListaSocios(),txtUsuario, txtPassword);
+            trabajador = get_Trabajador (CargarListaTrabajadores(),txtUsuario, txtPassword);
             InitializeComponent();
             username = txtUsuario;
             password = txtPassword;
-            DataContext = socioLogeado;
+            DataContext = trabajador;
            
         }
 
-        private Socio get_Socio (List<Socio> socios, string TextoUsuario, string password)
+        private Trabajador get_Trabajador (List<Trabajador> trabajadores, string TextoUsuario, string password)
         {
-            Socio socio = null;
-            for (int i = 0; i < socios.Count; i++)
+            Trabajador trabajador = null;
+            for (int i = 0; i < trabajadores.Count; i++)
             {
-                if (TextoUsuario.Equals(socios[i].username) && password.Equals(socios[i].password))
+                if (TextoUsuario.Equals(trabajadores[i].username) && password.Equals(trabajadores[i].password))
                 {
-                    socio = socios[i];
+                    trabajador = trabajadores[i];
                 }
             }
 
-            return socio;
+            return trabajador;
         }
 
         private void BtnExit_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            VentanaSalida salida = new VentanaSalida();
+            salida.Show();
         }
 
-        private List<Socio> CargarListaSocios()
+        private List<Trabajador> CargarListaTrabajadores()
         {
-            List<Socio> lista = new List<Socio>();
+            List<Trabajador> lista = new List<Trabajador>();
             XmlDocument doc = new XmlDocument();
-            var fichero = Application.GetResourceStream(new Uri("resources/Socios.xml", UriKind.Relative));
+            var fichero = Application.GetResourceStream(new Uri("resources/Trabajador.xml", UriKind.Relative));
             doc.Load(fichero.Stream);
 
             foreach (XmlNode node in doc.DocumentElement.ChildNodes)
             {
-                var nuevoSocio = new Socio("", "", "", "", "", "",null);
+                var nuevoTrabajador = new Trabajador("", "", "", "", "", "", null);
 
-                nuevoSocio.username = node.Attributes["Username"].Value;
-                nuevoSocio.password = node.Attributes["Contrasenia"].Value;
-                nuevoSocio.Nombre = node.Attributes["Nombre"].Value;
-                nuevoSocio.Apellidos = node.Attributes["Apellidos"].Value;
-                nuevoSocio.dni = node.Attributes["DNI"].Value;
-                nuevoSocio.tlf = node.Attributes["Telefono"].Value;
-                nuevoSocio.Foto_Perfil = new Uri(node.Attributes["Foto_Perfil"].Value, UriKind.Relative);
+                nuevoTrabajador.username = node.Attributes["Username"].Value;
+                nuevoTrabajador.password = node.Attributes["Contrasenia"].Value;
+                nuevoTrabajador.Nombre = node.Attributes["Nombre"].Value;
+                nuevoTrabajador.Apellidos = node.Attributes["Apellidos"].Value;
+                nuevoTrabajador.dni = node.Attributes["DNI"].Value;
+                nuevoTrabajador.tlf = node.Attributes["Telefono"].Value;
+                nuevoTrabajador.Foto_Perfil = new Uri(node.Attributes["Foto_Perfil"].Value, UriKind.Relative);
 
-                lista.Add(nuevoSocio);
+                lista.Add(nuevoTrabajador);
             }
 
             return lista;
@@ -89,6 +90,19 @@ namespace Proyecto_final
             GestionVoluntarios windorVoluntarios = new GestionVoluntarios(username, password);
             windorVoluntarios.Show();
             this.Hide();
+        }
+
+        private void btnGestionSocios_Click(object sender, RoutedEventArgs e)
+        {
+            GestionSocios windowSocios = new GestionSocios(username, password);
+            windowSocios.Show();
+            this.Hide();
+        }
+
+        private void btnAyuda_Click(object sender, RoutedEventArgs e)
+        {
+            Ayuda ventanaAyuda = new Ayuda();
+            ventanaAyuda.Show();
         }
     }
 }

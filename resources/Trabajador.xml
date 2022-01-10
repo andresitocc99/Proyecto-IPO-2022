@@ -1,0 +1,4 @@
+﻿<Trabajadores>
+	<Trabajador Username="andresitocc99" Contrasenia="estudianteUCLM1" Nombre="Andrés" Apellidos="Castellanos" DNI ="76491142C" Telefono="626321190" Foto_Perfil="Images/andresitocc99.jpg"/>
+	<Trabajador Username="juplundero" Contrasenia="estudianteUCLM2" Nombre="Daniel" Apellidos="Lopez" DNI="06379631A" Telefono="696441787" Foto_Perfil="Images/juplundero.jpg"/>
+</Trabajadores>

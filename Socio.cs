@@ -8,23 +8,25 @@ namespace Proyecto_final
 {
     class Socio
     {
-        public Socio(string username, string password, string nombre, string apellidos, string dni, string tlf, Uri perfil)
+        public Socio(string nombre, string apellidos, string dni, string telefono, string entidad_Bancaria, string cuenta_Bancaria, double saldo_Cuenta_Bancaria, Uri foto_Perfil)
         {
-            this.username = username;
-            this.password = password;
             this.Nombre = nombre;
             this.Apellidos = apellidos;
-            this.dni = dni;
-            this.tlf = tlf;
-            this.Foto_Perfil = perfil;
+            this.DNI = dni;
+            this.Telefono = telefono;
+            this.Entidad_Bancaria = entidad_Bancaria;
+            this.Cuenta_Bancaria = cuenta_Bancaria;
+            this.Saldo_Cuenta_Bancaria = saldo_Cuenta_Bancaria;
+            this.Foto_Perfil = foto_Perfil;
         }
 
-        public string username { get; set; }
-        public string password { get; set; }
         public string Nombre { set; get; }
         public string Apellidos { set; get; }
-        public string dni { set; get; }
-        public string tlf { set; get; }
+        public string DNI { set; get; }
+        public string Telefono { set; get; }
+        public string Entidad_Bancaria { get; set; }
+        public string Cuenta_Bancaria { set; get; }    
+        public double Saldo_Cuenta_Bancaria { set; get; }
         public Uri Foto_Perfil { set; get; }
         
 

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Proyecto_final"
         mc:Ignorable="d"
-        Title="GestionAnimales" Height="900" Width="900" Background="#FFD5EFFF">
+        Title="GestionAnimales" Height="900" Width="900" Background="#FFD5EFFF" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"> 
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="25"/>
@@ -23,9 +23,6 @@
             <RowDefinition Height="41*"/>
         </Grid.RowDefinitions>
 
-  
-
-        <Button x:Name="btnVolver" Grid.Column="1" Margin="31,0,0,0" Grid.Row="3" Content="Volver" HorizontalAlignment="Left" VerticalAlignment="Center" Width="117" Height="20" FontWeight="Bold" Click="btnVolver_Click"  />
 
         <ListBox x:Name="lstPerros" Grid.Column="1" Margin="5" Grid.Row="2" ItemsSource="{Binding}" SelectionChanged="lstPerros_SelectionChanged" BorderThickness="3" BorderBrush="#FF3470E6">
             <ListBox.ItemTemplate>
@@ -42,14 +39,14 @@
                     <Setter Property="Margin" Value="2"/>
                     <Style.Triggers>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter Property="Foreground" Value="Green"/>
+                            <Setter Property="Foreground" Value="Blue"/>
                             <Setter Property="FontWeight" Value="Bold"/>
-                            <Setter Property="BorderBrush" Value="Green"/>
+                            <Setter Property="BorderBrush" Value="Blue"/>
                             <Setter Property="BorderThickness" Value="3"/>
-                            <Setter Property="Background" Value="LightGreen"/>
+                            <Setter Property="Background" Value="LightBlue"/>
                         </Trigger>
                         <Trigger Property="ItemsControl.AlternationIndex" Value="1">
-                            <Setter Property="Background" Value="LightGreen"/>
+                            <Setter Property="Background" Value="LightBlue"/>
                         </Trigger>
                     </Style.Triggers>
                 </Style>
@@ -115,11 +112,11 @@
                 <Image x:Name="imgFoto" Height="120" Width="120" HorizontalAlignment="Center" Stretch="Fill" Source="{Binding ElementName=lstPerros, Path=SelectedItem.Foto}" Grid.Row="1" Grid.Column="4" Grid.RowSpan="3"/>
 
 
-                <Label FontWeight="Bold" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" FontSize="16">Edad:</Label>
+                <Label FontWeight="Bold" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" FontSize="14">Edad (años):</Label>
                 <Label FontWeight="Bold" Grid.Row="4" Grid.Column="3" VerticalAlignment="Center" FontSize="16">Sexo:</Label>
                 <Label FontWeight="Bold" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" FontSize="16">Raza:</Label>
-                <Label FontWeight="Bold" Grid.Row="5" Grid.Column="3" VerticalAlignment="Center" FontSize="16">Tamaño:</Label>
-                <Label FontWeight="Bold" Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" FontSize="16">Peso (Kg):</Label>
+                <Label FontWeight="Bold" Grid.Row="5" Grid.Column="3" VerticalAlignment="Center" FontSize="14">Tamaño(cm):</Label>
+                <Label FontWeight="Bold" Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" FontSize="16">Peso (g):</Label>
                 <Label FontWeight="Bold" Grid.Row="6" Grid.Column="3" VerticalAlignment="Center" FontSize="16">PPP:</Label>
                 <Label FontWeight="Bold" Grid.Row="7" Grid.Column="1" VerticalAlignment="Center" FontSize="16">Enfermo:</Label>
                 <Label FontWeight="Bold" Grid.Row="7" Grid.Column="3" VerticalAlignment="Center" FontSize="16">Vacunado:</Label>
@@ -195,7 +192,7 @@
             </Grid>
 
         </GroupBox>
-        
+
         <GroupBox Grid.Column="3" Grid.Row="2" Width="500" Height="200" Margin="15,528,10,25" BorderBrush="#FF3470E6" BorderThickness="3">
             <GroupBox.Header>
                 <StackPanel Orientation="Horizontal">
@@ -234,6 +231,19 @@
             </Grid>
         </GroupBox>
 
+        <Button x:Name="BtnSalir" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Bottom" Width="118" Height="40" Click="BtnExit_Click" FontWeight="Bold" BorderBrush="#FF0063D0" BorderThickness="3" Background="#FF9BDDFF" Grid.Column="3" Margin="336,0,0,30" Grid.RowSpan="2">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Image Height="20" Width="20" Source="Images/cerrar.png" Margin="7,0,0,0"/>
+                <TextBlock Text="SALIR" FontSize="14" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FF0063D0" Margin="9,0,11,0"/>
+            </StackPanel>
+        </Button>
+
+        <Button x:Name="BtnVolver" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Bottom" Width="118" Height="40" Click="btnVolver_Click" FontWeight="Bold" BorderBrush="#FF0063D0" BorderThickness="3" Background="#FF9BDDFF" Grid.Column="3" Margin="95,0,0,30" Grid.RowSpan="2">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Image Height="30" Width="35" Source="Images/salir.png" Margin="7,0,0,0"/>
+                <TextBlock Text="VOLVER" FontSize="14" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FF0063D0" Margin="9,0,11,0"/>
+            </StackPanel>
+        </Button>
 
 
 

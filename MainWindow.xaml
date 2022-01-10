@@ -8,7 +8,7 @@
         Title="Login" Height="360" Width="442"
         WindowStartupLocation="CenterScreen"
         HorizontalContentAlignment="Stretch"
-        VerticalContentAlignment="Stretch">
+        VerticalContentAlignment="Stretch" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="70*"/>
@@ -26,11 +26,20 @@
             <ColumnDefinition Width="66*"/>
         </Grid.ColumnDefinitions>
 
-        <Rectangle Fill="#FF424242" Margin="4.8,5.4,5.4,4.6" Grid.Row="0" Grid.Column="0" Grid.RowSpan="10" Grid.ColumnSpan="4" Stroke="Black" RadiusX="10" RadiusY="10"/>
-        <Button x:Name="BtnLogin" Content="Iniciar sesión" Grid.Row="5" Background="#FFFF5852" Foreground="White" FontWeight="Bold" Grid.Column="2" Grid.ColumnSpan="1" Padding="6" Grid.IsSharedSizeScope="True" Height="30" Margin="25,25,25,0" TabIndex="3" MouseEnter="BtnLogin_MouseEnter" MouseLeave="BtnLogin_MouseLeave" Click="BtnLogin_Click"/>
+        <Rectangle Margin="4.8,5.4,5.4,4.6" Grid.Row="0" Grid.Column="0" Grid.RowSpan="10" Grid.ColumnSpan="4" Stroke="Black" RadiusX="10" RadiusY="10">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF0644A7"/>
+                    <GradientStop Color="#FF000E48" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Button x:Name="BtnLogin" Content="Iniciar sesión" Grid.Row="5" Background="#FF52E3FF" Foreground="Black" FontWeight="Bold" Grid.Column="2" Grid.ColumnSpan="1" Padding="6" Grid.IsSharedSizeScope="True" Height="30" Margin="25,25,25,0" TabIndex="3" MouseEnter="BtnLogin_MouseEnter" MouseLeave="BtnLogin_MouseLeave" Click="BtnLogin_Click" BorderBrush="White" BorderThickness="1">
+
+        </Button>
         <Button x:Name="BtnLoginExit" Content="Salir" Grid.Column="1" Margin="25,25,25,0" Grid.Row="5" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="6" FontWeight="Bold" Height="30" TabIndex="4" MouseEnter="BtnLoginExit_MouseEnter" MouseLeave="BtnLoginExit_MouseLeave" Click="BtnLoginExit_Click"/>
         <TextBox x:Name="TextUsuario" Grid.Column="1" Margin="5" Grid.Row="2" TextWrapping="Wrap" Grid.ColumnSpan="2" VerticalContentAlignment="Center" FontSize="14" TabIndex="1" KeyDown="TextUsuario_KeyDown"/>
-        <PasswordBox x:Name="PasswordBox" Grid.Column="1" Margin="5" Grid.Row="4" Grid.ColumnSpan="2" PasswordChar="*" FontSize="20" FontWeight="Bold" IsEnabled="False" TabIndex="2"/>
+        <PasswordBox x:Name="PasswordBox" Grid.Column="1" Margin="5" Grid.Row="4" Grid.ColumnSpan="2" PasswordChar="*" FontSize="20" FontWeight="Bold" IsEnabled="False" TabIndex="2" KeyDown="PasswordBox_KeyDown"/>
 
         <Label x:Name="lblTituloLogin" Grid.Row="0" Grid.Column="1"
             Content="Inicio de Sesión" FontSize="18" Foreground="#FFFDFBFB"
@@ -49,5 +58,12 @@
             FontStyle="Italic" Foreground="#FFC4C6E0"
             HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" MouseEnter="lblRecordarContrasena_MouseEnter" MouseLeave="lblRecordarContrasena_MouseLeave" Width="130" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="25" Margin="0,0.7,0,0" />
         <Image Margin="15,10,10,10" Source="Images/happy.png"/>
+        <Image x:Name="imageCheckUsuario" Grid.Column="3" Height="30" Grid.Row="2" Width="30"/>
+        <Image x:Name="imageCheckPassword" Grid.Column="3" Height="30" Grid.Row="4" Width="30"/>
+
+        <Button x:Name="btnAyuda" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" IsEnabled="True" Width="40" Height="40" BorderBrush="#FF0063D0" BorderThickness="3" Background="#FF9BDDFF" Click="btnAyuda_Click" Margin="0,12,0,0">
+
+            <Image Height="30" Width="30" Source="Images/ayuda.png"  HorizontalAlignment="Center"/>
+        </Button>
     </Grid>
 </Window>

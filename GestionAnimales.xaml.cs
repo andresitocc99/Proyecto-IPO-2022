@@ -413,6 +413,10 @@ namespace Proyecto_final
             e.Handled = regex.IsMatch(e.Text);
         }
 
-       
+        private void BtnExit_Click(object sender, RoutedEventArgs e)
+        {
+            VentanaSalida salida = new VentanaSalida();
+            salida.Show();
+        }
     }
 }

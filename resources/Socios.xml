@@ -1,4 +1,6 @@
 ﻿<Socios>
-	<Socio Username="andresitocc99" Contrasenia="estudianteUCLM1" Nombre="Andrés" Apellidos="Castellanos" DNI ="76491142C" Telefono="626321190" Foto_Perfil="Images/andresitocc99.jpg"/>
-	<Socio Username="juplundero" Contrasenia="estudianteUCLM2" Nombre="Daniel" Apellidos="Lopez" DNI="06379631A" Telefono="696441787" Foto_Perfil="Images/juplundero.jpg"/>
+	<Socio Nombre="Greta" Apellidos="Thunberg" DNI="07584416C" Telefono="654123789" Entidad_Bancaria="BBVA" Cuenta_Bancaria="ES91 2001 0000 85 8355430083" Saldo_Cuenta_Bancaria="2554300.0" Foto_Perfil="Images/greta.jpg"/>
+	<Socio Nombre="Pablo" Apellidos="Iglesias" DNI="03716635A" Telefono="644156374" Entidad_Bancaria="Santander" Cuenta_Bancaria="ES94 2090 0000 29 0350044085" Saldo_Cuenta_Bancaria="3552500.0" Foto_Perfil="Images/pablo_iglesias.jpg"/>
+	<Socio Nombre="Gerard" Apellidos="Pique" DNI="05789941G" Telefono="621634715" Entidad_Bancaria="Caixa" Cuenta_Bancaria="ES86 2100 0000 11 1560000022" Saldo_Cuenta_Bancaria="4554350.0" Foto_Perfil="Images/pique.jpg"/>
+
 </Socios>
