@@ -152,35 +152,5 @@ namespace Proyecto_final
             return lista;
         }
 
-        /*public List<Animal> CargarListaAnimales()
-        {
-            List<Animal> lista = new List<Animal>();
-            XmlDocument doc = new XmlDocument();
-            var fichero = Application.GetResourceStream(new Uri("resources/Animales.xml", UriKind.Relative));
-            doc.Load(fichero.Stream);
-
-            foreach (XmlNode node in doc.DocumentElement.ChildNodes)
-            {
-                var nuevoAnimal = new Animal("", "", "", 0, 0, 0, "", "", "", "");
-
-                nuevoAnimal.nombre = node.Attributes["nombre"].Value;
-                nuevoAnimal.sexo = node.Attributes["sexo"].Value;
-                nuevoAnimal.raza = node.Attributes["raza"].Value;
-                nuevoAnimal.tamanio = Convert.ToInt32(node.Attributes["tamanio"].Value);
-                nuevoAnimal.peso = Convert.ToInt32(node.Attributes["peso"].Value);
-                nuevoAnimal.edad = Convert.ToInt32(node.Attributes["edad"].Value);
-                nuevoAnimal.chip = node.Attributes["chip"].Value;
-                nuevoAnimal.vacunado = node.Attributes["vacunado"].Value;
-                nuevoAnimal.estado_animal = node.Attributes["estado_animal"].Value;
-                nuevoAnimal.enfermo = node.Attributes["enfermo"].Value;
-
-                lista.Add(nuevoAnimal);
-            }
-
-            return lista;
-
-        }*/
-
-        
     }
 }

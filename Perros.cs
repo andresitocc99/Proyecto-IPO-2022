@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Proyecto_final
 {
-    class Perros
+    public class Perros
     {
-        public Perros(string nombre, string sexo, string raza, int tamanio, int peso, int edad, string pPP, string vacunado, string enfermo, Uri foto)
+        public Perros(string nombre, string sexo, string raza, int tamanio, int peso, int edad, bool pPP, bool vacunado, bool enfermo, Uri foto, bool padrino, string nombre_Padrino, int edad_Padrino, string contacto, int aportacion, string fecha_Apadrinamiento)
         {
             this.Nombre = nombre;
             this.Sexo = sexo;
@@ -20,6 +20,22 @@ namespace Proyecto_final
             this.Vacunado = vacunado;
             this.Enfermo = enfermo;
             this.Foto = foto;
+            this.Padrino = padrino;
+            if (padrino == true)
+            {
+                this.Nombre_Padrino = nombre_Padrino;
+                this.Edad_Padrino = edad_Padrino;
+                this.Contacto = contacto;
+                this.Aportacion = aportacion;
+                this.Fecha_Apadrinamiento = fecha_Apadrinamiento;
+            } else
+            {
+                this.Nombre_Padrino = "";
+                this.Edad_Padrino = 0;
+                this.Contacto = "";
+                this.Aportacion = 0;
+                this.Fecha_Apadrinamiento = "";
+            } 
         }
 
         public string Nombre { get; set; }
@@ -28,11 +44,16 @@ namespace Proyecto_final
         public int Tamanio { get; set; }
         public int Peso { get; set; }
         public int Edad { get; set; } 
-        public string PPP { get; set; }
-        public string Vacunado { get; set; }
-        public string Enfermo { get; set; }
+        public Boolean PPP { get; set; }
+        public Boolean Vacunado { get; set; }
+        public Boolean Enfermo { get; set; }
         public Uri Foto { get; set; }
-
+        public Boolean Padrino { get; set; }
+        public string Nombre_Padrino { get; set; }
+        public int Edad_Padrino { set; get; }
+        public string Contacto { set; get; }
+        public int Aportacion { set; get; }
+        public string Fecha_Apadrinamiento { set; get; }
 
     }
 }

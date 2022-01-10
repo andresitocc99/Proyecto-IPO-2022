@@ -1,28 +1,29 @@
-﻿<Window x:Class="Proyecto_final.GestionAnimales"
+﻿<Window x:Name="WindowGestionAnimales" x:Class="Proyecto_final.GestionAnimales"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Proyecto_final"
         mc:Ignorable="d"
-        Title="GestionAnimales" Height="650" Width="900">
+        Title="GestionAnimales" Height="900" Width="900" Background="#FFD5EFFF">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="25"/>
-            <ColumnDefinition Width="217"/>
-            <ColumnDefinition Width="500"/>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="525"/>
             <ColumnDefinition Width="25*"/>
         </Grid.ColumnDefinitions>
 
 
         <Grid.RowDefinitions>
             <RowDefinition Height="23*"/>
-            <RowDefinition Height="30*"/>
+            <RowDefinition Height="1"/>
             <RowDefinition Height="542*" />
             <RowDefinition Height="41*"/>
         </Grid.RowDefinitions>
 
-        <Menu Grid.Row="0" x:Name="miMenu" FontSize="16" FontWeight="Bold" Grid.ColumnSpan="4" VerticalAlignment="Top">
+        <Menu Grid.Row="0" x:Name="miMenu" FontSize="16" FontWeight="Bold" Grid.ColumnSpan="4" VerticalAlignment="Top" BorderThickness="2">
             <MenuItem Header="Ayuda" FontSize="14" >
                 <MenuItem x:Name="miAcercaDe" Header="Acerca de...">
                     <MenuItem.Icon>
@@ -31,7 +32,7 @@
                 </MenuItem>
             </MenuItem>
             <MenuItem Header="Perfil" FontSize="14">
-               
+
             </MenuItem>
             <MenuItem Header="Ajustes" FontSize="14">
                 <MenuItem x:Name="Ajustes" Header="Ajustes">
@@ -41,22 +42,225 @@
                 </MenuItem>
             </MenuItem>
         </Menu>
- 
-        <Button Grid.Column="1" Margin="31,0,0,0" Grid.Row="3" Content="Salir" HorizontalAlignment="Left" VerticalAlignment="Center" Width="117" Height="20" FontWeight="Bold"  />
 
-        <ListBox x:Name="lstPerros" Grid.Column="1" SelectedIndex="0" Margin="5" Grid.Row="2">
+        <Button x:Name="btnVolver" Grid.Column="1" Margin="31,0,0,0" Grid.Row="3" Content="Volver" HorizontalAlignment="Left" VerticalAlignment="Center" Width="117" Height="20" FontWeight="Bold" Click="btnVolver_Click"  />
+
+        <ListBox x:Name="lstPerros" Grid.Column="1" Margin="5" Grid.Row="2" ItemsSource="{Binding}" SelectionChanged="lstPerros_SelectionChanged" BorderThickness="3" BorderBrush="#FF3470E6">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
                         <Image Width="40" Height="40" Source="{Binding Foto}"/>
-                        <TextBlock VerticalAlignment="Center" Margin="20,0,0,0" Text="{Binding Nombre}"/>
+                        <TextBlock VerticalAlignment="Center" Margin="20,0,0,0" Text="{Binding Nombre}" FontSize="18" FontWeight="Bold"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
+
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="Margin" Value="2"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Foreground" Value="Green"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="BorderBrush" Value="Green"/>
+                            <Setter Property="BorderThickness" Value="3"/>
+                            <Setter Property="Background" Value="LightGreen"/>
+                        </Trigger>
+                        <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                            <Setter Property="Background" Value="LightGreen"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </ListBox.ItemContainerStyle>
+
+            <ListBox.ContextMenu>
+                <ContextMenu>
+                    <MenuItem x:Name="miAniadirItemLB" Header="Añadir ítem" >
+                        <MenuItem.Icon>
+                            <Image Source="Images/add_c.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem x:Name="miEliminarItemLB" Header="Eliminar ítem">
+                        <MenuItem.Icon>
+                            <Image Source="Images/remove_c.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </ContextMenu>
+            </ListBox.ContextMenu>
         </ListBox>
-        <GridSplitter Grid.Column="2" Width="5" HorizontalAlignment="Stretch" />
-        <StackPanel x:Name="spDetallesPerros" Grid.Column="2" Orientation="Vertical">
-        </StackPanel>
+        <GridSplitter Grid.Column="2" Width="5" HorizontalAlignment="Stretch" VerticalAlignment="Top" />
+
+        <GroupBox x:Name="grupoBoxPerro" Grid.Column="3" Grid.Row="2" Height="400" VerticalAlignment="Top" BorderThickness="0">
+            <GroupBox.Header>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Images/ficha.png" Margin="10" Width="30" Height="30"/>
+                    <TextBlock x:Name="cabeceraDatosPerro" FontSize="14" FontWeight="Bold" Text="Ficha Perro" VerticalAlignment="Center"/>
+                </StackPanel>
+            </GroupBox.Header>
+
+            <Grid x:Name="Grid_Datos" Width="480" Height="340" VerticalAlignment="Top">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition Width="10"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="10"/>
+                </Grid.RowDefinitions>
+
+                <Border
+                    BorderBrush="#FF3470E6"
+                    BorderThickness="3"
+                    Grid.RowSpan="10"
+                    
+                    CornerRadius="10" Grid.ColumnSpan="6"/>
+
+                <TextBox x:Name="txtNombre" FontWeight="Bold" FontSize="20" Text="{Binding ElementName=lstPerros, Path=SelectedItem.Nombre}" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" HorizontalAlignment="Center" Width="220" VerticalAlignment="Center" Height="35" PreviewTextInput="txtString_PTI"/>
+                <Image x:Name="imgFoto" Height="120" Width="120" HorizontalAlignment="Center" Stretch="Fill" Source="{Binding ElementName=lstPerros, Path=SelectedItem.Foto}" Grid.Row="1" Grid.Column="4" Grid.RowSpan="3"/>
+
+
+                <Label FontWeight="Bold" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" FontSize="16">Edad:</Label>
+                <Label FontWeight="Bold" Grid.Row="4" Grid.Column="3" VerticalAlignment="Center" FontSize="16">Sexo:</Label>
+                <Label FontWeight="Bold" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" FontSize="16">Raza:</Label>
+                <Label FontWeight="Bold" Grid.Row="5" Grid.Column="3" VerticalAlignment="Center" FontSize="16">Tamaño:</Label>
+                <Label FontWeight="Bold" Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" FontSize="16">Peso (Kg):</Label>
+                <Label FontWeight="Bold" Grid.Row="6" Grid.Column="3" VerticalAlignment="Center" FontSize="16">PPP:</Label>
+                <Label FontWeight="Bold" Grid.Row="7" Grid.Column="1" VerticalAlignment="Center" FontSize="16">Enfermo:</Label>
+                <Label FontWeight="Bold" Grid.Row="7" Grid.Column="3" VerticalAlignment="Center" FontSize="16">Vacunado:</Label>
+                <Label FontWeight="Bold" Grid.Row="8" Grid.Column="1" VerticalAlignment="Center" FontSize="16">Padrino:</Label>
+                <Label FontWeight="Bold" Grid.Row="8" Grid.Column="3" VerticalAlignment="Center" FontSize="16">Fotografía:</Label>
+
+                <Button x:Name="btnFotoAnadir" Grid.Row="8" Grid.Column="4"  BorderBrush="Black"  BorderThickness="3" Background="#FF5BB0FF" ToolTip="Pulse para añadir la fotografía del perro" IsEnabled="True" HorizontalAlignment="Left" Click="btnAnadirFoto_Click" Margin="20,0,0,0">
+                    <Image Source="Images/add_animal.png"/>
+                </Button>
+                <Image x:Name="imgRelleno" Grid.Row="8" Grid.Column="4" Margin="77,5,23,5" Width="30" Height="30"/>
+
+                <TextBox x:Name="txtEdad" Text="{Binding ElementName=lstPerros, Path=SelectedItem.Edad}" Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center" FontSize="14" VerticalAlignment="Center" Width="120" PreviewTextInput="txtInt_PTI"/>
+                <TextBox x:Name="txtSexo" Text="{Binding ElementName=lstPerros, Path=SelectedItem.Sexo}" Grid.Column="4" Grid.Row="4" HorizontalAlignment="Center" FontSize="14" VerticalAlignment="Center" Width="120" PreviewTextInput="txtString_PTI"/>
+                <TextBox x:Name="txtRaza" Text="{Binding ElementName=lstPerros, Path=SelectedItem.Raza}" Grid.Column="2" Grid.Row="5" HorizontalAlignment="Center" FontSize="14" VerticalAlignment="Center" Width="120" PreviewTextInput="txtString_PTI"/>
+                <TextBox x:Name="txtTamanio" Text="{Binding ElementName=lstPerros, Path=SelectedItem.Tamanio}" Grid.Column="4" Grid.Row="5" HorizontalAlignment="Center" FontSize="14" VerticalAlignment="Center" Width="120" PreviewTextInput="txtInt_PTI"/>
+                <TextBox x:Name="txtPeso" Text="{Binding ElementName=lstPerros, Path=SelectedItem.Peso}" Grid.Column="2" Grid.Row="6" HorizontalAlignment="Center" FontSize="14" VerticalAlignment="Center" Width="120" PreviewTextInput="txtInt_PTI"/>
+                <CheckBox x:Name="CheckBoxPPP" Grid.Column="4" IsChecked="{Binding ElementName=lstPerros, Path=SelectedItem.PPP}" HorizontalAlignment="Left" Grid.Row="6" VerticalAlignment="Center"/>
+                <CheckBox x:Name="checkBoxVacunado" Grid.Column="4" IsChecked="{Binding ElementName=lstPerros, Path=SelectedItem.Vacunado}" HorizontalAlignment="Left" Grid.Row="7" VerticalAlignment="Center"/>
+                <CheckBox x:Name="CheckBoxEnfermo" Grid.Column="2" IsChecked="{Binding ElementName=lstPerros, Path=SelectedItem.Enfermo}" HorizontalAlignment="Left"  Grid.Row="7" VerticalAlignment="Center"/>
+                <CheckBox x:Name="CheckBoxPadrino" Grid.Column="2" IsChecked="{Binding ElementName=lstPerros, Path=SelectedItem.Padrino}" HorizontalAlignment="Left" Grid.Row="8" VerticalAlignment="Center"/>
+                <TextBlock x:Name="txtHide" Visibility="Hidden" Text="{Binding ElementName=lstPerros, Path=SelectedItem.Foto}"/>
+            </Grid>
+
+
+        </GroupBox>
+
+        <GroupBox x:Name="groupBoxGestion" Grid.Column="3"  Grid.Row="2" Width="500" Height="110" HorizontalAlignment="Left" Margin="15,400,0,243" BorderThickness="0">
+            <GroupBox.Header>
+                <StackPanel Orientation="Horizontal" Height="50">
+                    <Image Source="Images/configuracion.png" Margin="10" Width="30" Height="30"/>
+                    <TextBlock x:Name="cabeceraGestion" FontSize="14" FontWeight="Bold" Text="Gestiones" VerticalAlignment="Center"/>
+                </StackPanel>
+            </GroupBox.Header>
+            <Grid Height="40" VerticalAlignment="Top" Width="500" HorizontalAlignment="Center">
+                <Grid.ColumnDefinitions>
+
+                    <ColumnDefinition Width="125"/>
+                    <ColumnDefinition Width="125"/>
+                    <ColumnDefinition Width="125"/>
+                    <ColumnDefinition Width="125"/>
+
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="btnAnadirAnimal" Grid.Column="0" Background="#FF5BB0FF" BorderThickness="3" BorderBrush="Black" HorizontalAlignment="Center" VerticalAlignment="Center" IsEnabled="True" Click="btnAnadirAnimal_Click" >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Height="20" Width="20" Source="Images/add_animal.png" Margin="7,0,0,0"/>
+                        <TextBlock Text="Añadir" FontSize="14" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Margin="9,0,11,0"/>
+                    </StackPanel>
+                </Button>
+
+                <Button x:Name="btnEditarAnimal" Grid.Column="1" Background="#FF5BB0FF" BorderThickness="3" BorderBrush="Black" HorizontalAlignment="Center" VerticalAlignment="Center" IsEnabled="False" Click="btnEditarAnimal_Click" >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Height="20" Width="20" Source="Images/editar.png" Margin="7,0,0,0"/>
+                        <TextBlock x:Name="txtEditarAnimal" Text="Editar" FontSize="14" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Margin="9,0,11,0"/>
+                    </StackPanel>
+                </Button>
+
+                <Button x:Name="btnEliminarAnimal" Grid.Column="2" Background="#FF5BB0FF" BorderThickness="3" BorderBrush="Black" HorizontalAlignment="Center" VerticalAlignment="Center" IsEnabled="False" Click="btnEliminarAnimales_Click" >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Height="20" Width="20" Source="Images/eliminar.png" Margin="7,0,0,0"/>
+                        <TextBlock Text="Eliminar" FontSize="14" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Margin="9,0,11,0"/>
+                    </StackPanel>
+                </Button>
+
+                <Button x:Name="btnBorrarAnimal" Grid.Column="3" Background="#FF5BB0FF" BorderThickness="3" BorderBrush="Black" HorizontalAlignment="Center" VerticalAlignment="Center" IsEnabled="True" Click="bbtnBorrar_Click" >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Height="20" Width="20" Source="Images/borrar.png" Margin="7,0,0,0"/>
+                        <TextBlock Text="Borrar" FontSize="14" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Margin="9,0,11,0"/>
+                    </StackPanel>
+                </Button>
+
+
+            </Grid>
+
+
+
+
+        </GroupBox>
+        <GroupBox Grid.Column="3" Grid.Row="2" Width="500" Height="200" Margin="15,528,10,25" BorderBrush="#FF3470E6" BorderThickness="3">
+            <GroupBox.Header>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Images/ficha.png" Margin="10" Width="30" Height="30"/>
+                    <TextBlock x:Name="cabeceraDatosPadrino" FontSize="14" FontWeight="Bold" Text="Datos Padrino" VerticalAlignment="Center"/>
+                </StackPanel>
+            </GroupBox.Header>
+            <Grid Width="500" Height="140" HorizontalAlignment="Left">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition Width="110"/>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition Width="10"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="10"/>
+                </Grid.RowDefinitions>
+
+                <Label FontWeight="Bold" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" FontSize="14">Nombre:</Label>
+                <Label FontWeight="Bold" Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" FontSize="14">Edad (años):</Label>
+                <Label FontWeight="Bold" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" FontSize="14">Contacto:</Label>
+                <Label FontWeight="Bold" Grid.Row="2" Grid.Column="3" VerticalAlignment="Center" FontSize="14">Aportación(€):</Label>
+                <Label FontWeight="Bold" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Center" FontSize="14">Fecha Apadrinamiento:</Label>
+
+                <TextBox x:Name="txtNombrePadrino" Text="{Binding ElementName=lstPerros, Path=SelectedItem.Nombre_Padrino}" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" FontSize="14" VerticalAlignment="Center" Width="120" PreviewTextInput="txtString_PTI"/>
+                <TextBox x:Name="txtEdadPadrino" Text="{Binding ElementName=lstPerros, Path=SelectedItem.Edad_Padrino}" Grid.Column="4" Grid.Row="1" HorizontalAlignment="Center" FontSize="14" VerticalAlignment="Center" Width="120" PreviewTextInput="txtInt_PTI"/>
+                <TextBox x:Name="txtContacto" Text="{Binding ElementName=lstPerros, Path=SelectedItem.Contacto}" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" FontSize="14" VerticalAlignment="Center" Width="120" PreviewTextInput="txtInt_PTI"/>
+                <TextBox x:Name="txtAportacion" Text="{Binding ElementName=lstPerros, Path=SelectedItem.Aportacion}" Grid.Column="4" Grid.Row="2" HorizontalAlignment="Center" FontSize="14" VerticalAlignment="Center" Width="120" PreviewTextInput="txtInt_PTI"/>
+                <TextBox x:Name="txtFechaApadrinamiento" Text="{Binding ElementName=lstPerros, Path=SelectedItem.Fecha_Apadrinamiento}" Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center" FontSize="14" VerticalAlignment="Center" Width="100"/>
+            </Grid>
+        </GroupBox>
+
+
+
+
+
+
+
+
 
 
     </Grid>

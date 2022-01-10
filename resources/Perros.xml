@@ -1,7 +1,7 @@
 ﻿<Perros>
-	<Perro Nombre="Nana" Sexo="hembra" Raza="Pastor" Tamanio="40" Peso="3000" Edad="3" PPP="si" Vacunado="si" Enfermo="no" Foto="Images/nana.jpg"/>
-	<Perro Nombre="Kira" Sexo="hembra" Raza="Bichon" Tamanio="15" Peso="1000" Edad="1" PPP="no" Vacunado="si" Enfermo="no" Foto="Images/kira.jpg"/>
-	<Perro Nombre="Tedi" Sexo="macho" Raza="Yorkshire" Tamanio="10" Peso="35" Edad="6" PPP="no" Vacunado="si" Enfermo="no" Foto="Images/tedi.jpg"/>
-	<Perro Nombre="Zape" Sexo="macho" Raza="Caniche" Tamanio="10" Peso="40" Edad="36" PPP="no" Vacunado="no" Enfermo="si" Foto="Images/zape.jpg"/>
-	<Perro Nombre="Oker" Sexo="macho" Raza="Husky" Tamanio="15" Peso="1500" Edad="3" PPP="si" Vacunado="si" Enfermo="no" Foto="Images/oker.png"/>
+	<Perro Nombre="Nana" Sexo="hembra" Raza="Pastor" Tamanio="40" Peso="3000" Edad="3" PPP="true" Vacunado="true" Enfermo="false" Foto="Images/nana.jpg" Padrino="true" Nombre_Padrino="Pepe Viyuela" Edad_Padrino="58" Contacto="664237496" Aportacion_Mensual="400" Fecha_Apadrinamiento="05/10/2021"/>
+	<Perro Nombre="Kira" Sexo="hembra" Raza="Bichon" Tamanio="15" Peso="1000" Edad="1" PPP="false" Vacunado="true" Enfermo="false" Foto="Images/kira.jpg" Padrino="false" Nombre_Padrino="" Edad_Padrino="0" Contacto="" Aportacion_Mensual="0" Fecha_Apadrinamiento=""/>
+	<Perro Nombre="Tedi" Sexo="macho" Raza="Yorkshire" Tamanio="10" Peso="35" Edad="6" PPP="false" Vacunado="true" Enfermo="false" Foto="Images/tedi.jpg" Padrino="true" Nombre_Padrino="Pedro Sanchez" Edad_Padrino="49" Contacto="696314758" Aportacion_Mensual="750" Fecha_Apadrinamiento="22/03/2020"/>
+	<Perro Nombre="Zape" Sexo="macho" Raza="Caniche" Tamanio="10" Peso="40" Edad="36" PPP="false" Vacunado="false" Enfermo="true" Foto="Images/zape.jpg" Padrino="false" Nombre_Padrino="" Edad_Padrino="0" Contacto="" Aportacion_Mensual="0" Fecha_Apadrinamiento=""/>
+	<Perro Nombre="Oker" Sexo="macho" Raza="Husky" Tamanio="15" Peso="1500" Edad="3" PPP="true" Vacunado="true" Enfermo="false" Foto="Images/oker.png" Padrino="true" Nombre_Padrino="Josep Pedrerol" Edad_Padrino="56" Contacto="654114587" Aportacion_Mensual="300" Fecha_Apadrinamiento="15/12/2021"/>
 </Perros>
