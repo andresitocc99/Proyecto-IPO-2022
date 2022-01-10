@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Documentos\Visual Studio 2022\Proyecto final\App.xaml
-3-509090477
+5-476255369
 
-111666854533
+13389495043
 13-1310406943
-GestionAnimales.xaml;MainWindow.xaml;Window1.xaml;
+GestionAnimales.xaml;GestionSocios.xaml;GestionVoluntarios.xaml;MainWindow.xaml;Window1.xaml;
 
-False
+True
 

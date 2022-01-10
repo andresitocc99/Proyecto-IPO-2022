@@ -55,16 +55,30 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Padrinos.cs" />
+    <Compile Include="GestionSocios.xaml.cs">
+      <DependentUpon>GestionSocios.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GestionVoluntarios.xaml.cs">
+      <DependentUpon>GestionVoluntarios.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Perros.cs" />
     <Compile Include="GestionAnimales.xaml.cs">
       <DependentUpon>GestionAnimales.xaml</DependentUpon>
     </Compile>
     <Compile Include="Socio.cs" />
+    <Compile Include="Voluntarios.cs" />
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
     <Page Include="GestionAnimales.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GestionSocios.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GestionVoluntarios.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -178,6 +192,20 @@
   <ItemGroup>
     <Resource Include="Images\check.png" />
     <Resource Include="Images\cross.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ayuda.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\3254164.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\Voluntarios.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\angelgarcia.jpg" />
+    <Resource Include="Images\bernievip.jpg" />
+    <Resource Include="Images\yhorm.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

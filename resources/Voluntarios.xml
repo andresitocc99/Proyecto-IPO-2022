@@ -1,0 +1,5 @@
+﻿<Voluntarios>
+	<Voluntario Nombre="Angel" Apellidos="García Collado" Edad="22" DNI="05834497L" Foto_Perfil="Images/angelgarcia.jpg" Email="mejoradcarrydelahistoria@gmail.com" Telefono="655147596" Zona="Ciudad Real" Horario="Mañanas"/>
+	<Voluntario Nombre="Alberto" Apellidos="Díaz" Edad="22" DNI="05814597P" Foto_Perfil="Images/yhorm.jpg" Email="mrpeonza@gmail.com" Telefono="699147589" Zona="Manzanares" Horario="Tardes"/>
+	<Voluntario Nombre="Raul" Apellidos="Bernalte Sanchez" Edad="22" DNI="05812279D" Foto_Perfil="Images/bernievip.jpg" Email="berniemileurista@gmail.com" Telefono="644257814" Zona="Moral de Calatrava" Horario="Mañanas"/>
+</Voluntarios>

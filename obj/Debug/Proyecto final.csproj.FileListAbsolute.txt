@@ -54,3 +54,7 @@ D:\Documentos\Github\Proyecto-IPO-2022\obj\Debug\Proyecto final.csproj.GenerateR
 D:\Documentos\Github\Proyecto-IPO-2022\obj\Debug\Proyecto final.csproj.CoreCompileInputs.cache
 D:\Documentos\Github\Proyecto-IPO-2022\obj\Debug\Proyecto final.exe
 D:\Documentos\Github\Proyecto-IPO-2022\obj\Debug\Proyecto final.pdb
+D:\Documentos\Visual Studio 2022\Proyecto final\obj\Debug\GestionSocios.g.cs
+D:\Documentos\Visual Studio 2022\Proyecto final\obj\Debug\GestionVoluntarios.g.cs
+D:\Documentos\Visual Studio 2022\Proyecto final\obj\Debug\GestionSocios.baml
+D:\Documentos\Visual Studio 2022\Proyecto final\obj\Debug\GestionVoluntarios.baml

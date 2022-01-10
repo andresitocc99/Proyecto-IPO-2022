@@ -20,11 +20,15 @@ namespace Proyecto_final
     public partial class Window1 : Window
     {
         private Socio socioLogeado;
+        private string username;
+        private string password;
         
         public Window1 (string txtUsuario, string txtPassword)
         {
             socioLogeado = get_Socio (CargarListaSocios(),txtUsuario, txtPassword);
             InitializeComponent();
+            username = txtUsuario;
+            password = txtPassword;
             DataContext = socioLogeado;
            
         }
@@ -57,17 +61,17 @@ namespace Proyecto_final
 
             foreach (XmlNode node in doc.DocumentElement.ChildNodes)
             {
-                var nuevoVoluntario = new Socio("", "", "", "", "", "",null);
+                var nuevoSocio = new Socio("", "", "", "", "", "",null);
 
-                nuevoVoluntario.username = node.Attributes["Username"].Value;
-                nuevoVoluntario.password = node.Attributes["Contrasenia"].Value;
-                nuevoVoluntario.Nombre = node.Attributes["Nombre"].Value;
-                nuevoVoluntario.Apellidos = node.Attributes["Apellidos"].Value;
-                nuevoVoluntario.dni = node.Attributes["DNI"].Value;
-                nuevoVoluntario.tlf = node.Attributes["Telefono"].Value;
-                nuevoVoluntario.Foto_Perfil = new Uri(node.Attributes["Foto_Perfil"].Value, UriKind.Relative);
+                nuevoSocio.username = node.Attributes["Username"].Value;
+                nuevoSocio.password = node.Attributes["Contrasenia"].Value;
+                nuevoSocio.Nombre = node.Attributes["Nombre"].Value;
+                nuevoSocio.Apellidos = node.Attributes["Apellidos"].Value;
+                nuevoSocio.dni = node.Attributes["DNI"].Value;
+                nuevoSocio.tlf = node.Attributes["Telefono"].Value;
+                nuevoSocio.Foto_Perfil = new Uri(node.Attributes["Foto_Perfil"].Value, UriKind.Relative);
 
-                lista.Add(nuevoVoluntario);
+                lista.Add(nuevoSocio);
             }
 
             return lista;
@@ -75,8 +79,15 @@ namespace Proyecto_final
 
         private void btnGestionAnimales_Click(object sender, RoutedEventArgs e)
         {
-            GestionAnimales windowAnimales= new GestionAnimales();
+            GestionAnimales windowAnimales= new GestionAnimales(username, password);
             windowAnimales.Show();
+            this.Hide();
+        }
+
+        private void btnGestionVoluntarios_Click(object sender, RoutedEventArgs e)
+        {
+            GestionVoluntarios windorVoluntarios = new GestionVoluntarios(username, password);
+            windorVoluntarios.Show();
             this.Hide();
         }
     }

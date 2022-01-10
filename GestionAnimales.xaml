@@ -23,25 +23,7 @@
             <RowDefinition Height="41*"/>
         </Grid.RowDefinitions>
 
-        <Menu Grid.Row="0" x:Name="miMenu" FontSize="16" FontWeight="Bold" Grid.ColumnSpan="4" VerticalAlignment="Top" BorderThickness="2">
-            <MenuItem Header="Ayuda" FontSize="14" >
-                <MenuItem x:Name="miAcercaDe" Header="Acerca de...">
-                    <MenuItem.Icon>
-                        <Image Source="images/question.png"/>
-                    </MenuItem.Icon>
-                </MenuItem>
-            </MenuItem>
-            <MenuItem Header="Perfil" FontSize="14">
-
-            </MenuItem>
-            <MenuItem Header="Ajustes" FontSize="14">
-                <MenuItem x:Name="Ajustes" Header="Ajustes">
-                    <MenuItem.Icon>
-                        <Image Source="Images/gear.png"/>
-                    </MenuItem.Icon>
-                </MenuItem>
-            </MenuItem>
-        </Menu>
+  
 
         <Button x:Name="btnVolver" Grid.Column="1" Margin="31,0,0,0" Grid.Row="3" Content="Volver" HorizontalAlignment="Left" VerticalAlignment="Center" Width="117" Height="20" FontWeight="Bold" Click="btnVolver_Click"  />
 
@@ -212,10 +194,8 @@
 
             </Grid>
 
-
-
-
         </GroupBox>
+        
         <GroupBox Grid.Column="3" Grid.Row="2" Width="500" Height="200" Margin="15,528,10,25" BorderBrush="#FF3470E6" BorderThickness="3">
             <GroupBox.Header>
                 <StackPanel Orientation="Horizontal">

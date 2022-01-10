@@ -24,11 +24,15 @@ namespace Proyecto_final
         private List<Perros> listaPerros;
         private int counter;
         private string foto;
+        private string username;
+        private string password;
         
-        public GestionAnimales()
+        public GestionAnimales(string txtUsername, string txtPassword)
         {
             InitializeComponent();
             listaPerros = CargarListaPerros();
+            username = txtUsername;
+            password = txtPassword;
             DataContext = listaPerros;
             
         }
@@ -337,7 +341,7 @@ namespace Proyecto_final
 
         private void btnVolver_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow ventana = new MainWindow();
+            Window1 ventana = new Window1(username, password);
             ventana.Show();
             this.Hide();
         }
